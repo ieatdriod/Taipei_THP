@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/7/18 ?????? 03:09:09 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="tw.com.mitac.thp.bean.BhsRecommandLink" table="bhs_recommand_link" catalog="thp" optimistic-lock="version">
+        <id name="sysid" type="string">
+            <column name="SYSID" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="creator" type="string">
+            <column name="CREATOR" not-null="true">
+                <comment>&#229;&#187;&#186;&#231;&#171;&#139;&#228;&#186;&#186;&#229;&#147;&#161;</comment>
+            </column>
+        </property>
+        <property name="creationDate" type="string">
+            <column name="CREATION_DATE" not-null="true">
+                <comment>&#229;&#187;&#186;&#231;&#171;&#139;&#230;&#153;&#130;&#233;&#150;&#147;</comment>
+            </column>
+        </property>
+        <property name="operator" type="string">
+            <column name="OPERATOR" not-null="true">
+                <comment>&#231;&#182;&#173;&#232;&#173;&#183;&#228;&#186;&#186;&#229;&#147;&#161;</comment>
+            </column>
+        </property>
+        <property name="operationDate" type="string">
+            <column name="OPERATION_DATE" not-null="true">
+                <comment>&#231;&#182;&#173;&#232;&#173;&#183;&#230;&#151;&#165;&#230;&#156;&#159;</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="REMARK" length="65535">
+                <comment>&#229;&#130;&#153;&#232;&#168;&#187;</comment>
+            </column>
+        </property>
+        <property name="recommandLinkName" type="string">
+            <column name="RECOMMAND_LINK_NAME" not-null="true">
+                <comment>&#229;&#173;&#144;&#233;&#160;&#133;&#231;&#155;&#174;&#229;&#144;&#141;&#231;&#168;&#177;</comment>
+            </column>
+        </property>
+        <property name="isEnabled" type="java.lang.Boolean">
+            <column name="IS_ENABLED" not-null="true">
+                <comment>&#231;&#139;&#128;&#230;&#133;&#139;</comment>
+            </column>
+        </property>
+        <property name="recommandSysid" type="string">
+            <column name="RECOMMAND_SYSID" length="45" />
+        </property>
+        <property name="dataOrder" type="java.lang.Integer">
+            <column name="DATA_ORDER" not-null="true">
+                <comment>&#230;&#142;&#146;&#229;&#186;&#143;</comment>
+            </column>
+        </property>
+        
+        <set cascade="all-delete-orphan" lazy="false" name="detailSet" order-by="sysid" sort="unsorted"
+			table="bhs_recommand_item">
+			<key column="RECOMMAND_SYSID" />
+			<!-- foreign-key="SYSID" on-delete="cascade" not-null="true" -->
+			<one-to-many class="tw.com.mitac.thp.bean.BhsRecommandItem" />
+		</set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<util:list id="allTexthtmlList" list-class="java.util.ArrayList">
+		<!-- 建議留空 -->
+
+		<!-- <value>qaText</value> <value>smsMessage</value> -->
+	</util:list>
+
+	<!-- 排除 -->
+	<util:map id="excludeTexthtmlMap" map-class="java.util.LinkedHashMap">
+		<!-- 建議留空 -->
+
+		<!-- <entry key="itemsysid"> <util:list list-class="java.util.ArrayList"> 
+			<value>CorePcSalesAnalyzeField</value> </util:list> </entry> -->
+	</util:map>
+
+	<!-- 在此設定可以省略halfwidthToFullwidthFalse -->
+	<util:map id="texthtmlMap" map-class="java.util.LinkedHashMap">
+		<entry key="CpsConfig">
+			<util:list list-class="java.util.ArrayList">
+				<value>aboutUs</value>
+				<value>privacyPolicy</value>
+				<value>termsService</value>
+			</util:list>
+		</entry>
+		<entry key="CpsEpaper">
+			<util:list list-class="java.util.ArrayList">
+				<value>content</value>
+			</util:list>
+		</entry>
+		<entry key="CpsEmailTemplate">
+			<util:list list-class="java.util.ArrayList">
+				<value>emailContent</value>
+			</util:list>
+		</entry>
+		<entry key="CpsFaq">
+			<util:list list-class="java.util.ArrayList">
+				<value>faqAnswer</value>
+			</util:list>
+		</entry>
+
+		<entry key="MtsVendorProfile">
+			<util:list list-class="java.util.ArrayList">
+
+				<value>vendorProfileFull</value>
+			</util:list>
+		</entry>
+		<entry key="MtsProducts">
+			<util:list list-class="java.util.ArrayList">
+
+				<value>productsProfileFull</value>
+				<value>productsText2</value>
+				<value>productsText3</value>
+				<value>productsText4</value>
+				<value>productsText5</value>
+			</util:list>
+		</entry>
+		<entry key="MtsArticle">
+			<util:list list-class="java.util.ArrayList">
+				<value>articleFull</value>
+			</util:list>
+		</entry>
+
+		<entry key="BhsVendorProfile">
+			<util:list list-class="java.util.ArrayList">
+				<value>vendorProfileFull</value>
+			</util:list>
+		</entry>
+		<entry key="BhsProducts">
+			<util:list list-class="java.util.ArrayList">
+
+				<value>productsProfileFull</value>
+				<value>productsText2</value>
+				<value>productsText3</value>
+				<value>productsText4</value>
+				<value>productsText5</value>
+			</util:list>
+		</entry>
+		<entry key="BhsTechnology">
+			<util:list list-class="java.util.ArrayList">
+
+				<value>technologyProfileFull</value>
+				<value>technologyText2</value>
+				<value>technologyText3</value>
+				<value>technologyText4</value>
+			</util:list>
+		</entry>
+		<entry key="BhsHighlight">
+			<util:list list-class="java.util.ArrayList">
+				<value>highlightText2</value>
+				<value>highlightProfileFull</value>
+			</util:list>
+		</entry>
+
+		<entry key="BhsArticle">
+			<util:list list-class="java.util.ArrayList">
+				<value>articleSummary</value>
+				<value>articleFull</value>
+			</util:list>
+		</entry>
+
+		<entry key="HpsCoreBrand">
+			<util:list list-class="java.util.ArrayList">
+				<value>brandDesceiption</value>
+			</util:list>
+		</entry>
+		<entry key="HpsCoreFaq">
+			<util:list list-class="java.util.ArrayList">
+				<value>faqAnswer</value>
+			</util:list>
+		</entry>
+		<entry key="HpsVendorNews">
+			<util:list list-class="java.util.ArrayList">
+				<value>content</value>
+			</util:list>
+		</entry>
+		<entry key="HpsVendorItem">
+			<util:list list-class="java.util.ArrayList">
+				<value>simpleDescription</value>
+				<value>desc</value>
+				<value>itemSpecification</value>
+			</util:list>
+		</entry>
+
+		<entry key="CpsNews">
+			<util:list list-class="java.util.ArrayList">
+				<value>content</value>
+			</util:list>
+		</entry>
+
+		<entry key="CpsExhibitionList">
+			<util:list list-class="java.util.ArrayList">
+				<value>exhibitionExplanation</value>
+			</util:list>
+		</entry>
+
+		<entry key="MtsHighlight">
+			<util:list list-class="java.util.ArrayList">
+				<value>highlightText2</value>
+				<value>highlightProfileFull</value>
+			</util:list>
+		</entry>
+
+		<entry key="MtsCooperation">
+			<util:list list-class="java.util.ArrayList">
+				<value>cooperationProfileFull</value>
+				<value>cooperationText2</value>
+				<value>cooperationText3</value>
+			</util:list>
+		</entry>
+
+		<entry key="CpsHottopicInfo">
+			<util:list list-class="java.util.ArrayList">
+				<value>hottopicFull</value>
+			</util:list>
+		</entry>
+
+	</util:map>
+</beans>

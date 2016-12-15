@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="User-allow2" namespace="/cps2" extends="Tenancy-allow">
+		<interceptors>
+			<interceptor name="LoginInterceptor" class="tw.com.mitac.thp.login2.LoginInterceptor" />
+
+			<interceptor-stack name="UserAllowStack">
+				<interceptor-ref name="TenancyRegisterStack" />
+				<interceptor-ref name="LoginInterceptor" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="UserAllowStack" />
+	</package>
+
+	<package name="Member-formPost-login2" namespace="/pages2" extends="Tenancy-allow">
+		<action name="frontMemberLogin" method="login" class="tw.com.mitac.thp.login2.LoginAction" />
+	</package>
+	<package name="Member-formPost-login" namespace="/cps2" extends="Tenancy-allow">
+		<global-results>
+			<result name="notlogin">/WEB-INF/outer/cps2/index.jsp</result>
+		</global-results>
+
+		<!-- 登入頁面 -->
+		<!-- <action name="memberLoginPage" method="memberLoginPage" class="tw.com.mitac.thp.login2.LoginAction"> <result>/WEB-INF/outer/cps2/memberLoginPage.jsp</result> 
+			</action> -->
+
+		<action name="frontMemberLogin" method="login" class="tw.com.mitac.thp.login2.LoginAction" />
+
+		<action name="memberLogin" method="login" class="tw.com.mitac.thp.login2.LoginAction" />
+		<action name="memberLogout" method="logout" class="tw.com.mitac.thp.login2.LoginAction" />
+	</package>
+	<package name="Member-ajaxFormPost-login" extends="Tenancy-allow">
+		<action name="ajaxMemberLogin" method="ajaxLogin" class="tw.com.mitac.thp.login2.LoginAction" />
+	</package>
+
+	<package name="oauthLink" namespace="/pages2" extends="Tenancy-allow">
+		<action name="registerRedirect1" method="registerRedirect1" class="tw.com.mitac.thp.login2.GooglePlusRegisterAction" />
+		<action name="registerRedirect2" method="registerRedirect2" class="tw.com.mitac.thp.login2.GooglePlusRegisterAction">
+			<result name="register">CPS_FW_002.jsp</result>
+			<result>CPS_msg.jsp</result>
+		</action>
+		<action name="linkRedirect1" method="linkRedirect1" class="tw.com.mitac.thp.login2.GooglePlusLinkAction" />
+		<action name="linkRedirect2" method="linkRedirect2" class="tw.com.mitac.thp.login2.GooglePlusLinkAction">
+			<result>CPS_msg.jsp</result>
+		</action>
+
+		<action name="fbRegisterRedirect1" method="registerRedirect1" class="tw.com.mitac.thp.login2.FacabookRegisterAction" />
+		<action name="fbRegisterRedirect2" method="registerRedirect2" class="tw.com.mitac.thp.login2.FacabookRegisterAction">
+			<result name="register">CPS_FW_002.jsp</result>
+			<result>CPS_msg.jsp</result>
+		</action>
+		<action name="fbLinkRedirect1" method="linkRedirect1" class="tw.com.mitac.thp.login2.FacabookRegisterAction" />
+
+		<action name="liRegisterRedirect1" method="registerRedirect1" class="tw.com.mitac.thp.login2.LinkedinRegisterAction" />
+		<action name="liRegisterRedirect2" method="registerRedirect2" class="tw.com.mitac.thp.login2.LinkedinRegisterAction">
+			<result name="register">CPS_FW_002.jsp</result>
+			<result>CPS_msg.jsp</result>
+		</action>
+		<action name="liLinkRedirect1" method="linkRedirect1" class="tw.com.mitac.thp.login2.LinkedinLinkAction" />
+		<action name="liLinkRedirect2" method="linkRedirect2" class="tw.com.mitac.thp.login2.LinkedinLinkAction">
+			<result>CPS_msg.jsp</result>
+		</action>
+
+		<action name="wbRegisterRedirect1" method="registerRedirect1" class="tw.com.mitac.thp.login2.WeiboRegisterAction" />
+		<action name="wbRegisterRedirect2" method="registerRedirect2" class="tw.com.mitac.thp.login2.WeiboRegisterAction">
+			<result name="register">CPS_FW_002.jsp</result>
+			<result>CPS_msg.jsp</result>
+		</action>
+		<action name="wbLinkRedirect1" method="linkRedirect1" class="tw.com.mitac.thp.login2.WeiboLinkAction" />
+		<action name="wbLinkRedirect2" method="linkRedirect2" class="tw.com.mitac.thp.login2.WeiboLinkAction">
+			<result>CPS_msg.jsp</result>
+		</action>
+	</package>
+</struts>

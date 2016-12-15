@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="mts" namespace="/mts" extends="Tenancy-allow">
+		<action name="showMtsArticleMain" method="outerMain" class="tw.com.mitac.thp.action.FrontMtsArticleAction">
+			<result name="outerMain">/WEB-INF/outer/mts/MtsArticleActionOuterMain.jsp</result>
+		</action>
+		<action name="showMtsArticleSingle" method="outerItemSingle" class="tw.com.mitac.thp.action.FrontMtsArticleAction">
+			<result>/WEB-INF/outer/mts/MtsArticleActionOuterSingle.jsp</result>
+			<result name="error">/WEB-INF/outer/mts/outerErrorPage.jsp</result>
+		</action>
+
+		<action name="showMtsVendorProfileMain" method="outerMain" class="tw.com.mitac.thp.action.FrontMtsVendorProfileAction">
+			<result name="outerMain">/WEB-INF/outer/mts/MtsVendorProfileActionOuterMain.jsp</result>
+		</action>
+		<action name="showMtsProductsSingle" method="outerItemSingle" class="tw.com.mitac.thp.action.FrontMtsProductsAction">
+			<result>/WEB-INF/outer/mts/MtsProductsActionOuterSingle.jsp</result>
+			<result name="error">/WEB-INF/outer/mts/outerErrorPage.jsp</result>
+		</action>
+
+		<!-- 特色服務的預覽 -->
+		<action name="viewMtsProductsSingle" method="viewItemSingle" class="tw.com.mitac.thp.action.FrontMtsProductsAction">
+			<result>/WEB-INF/outer/mts/MtsProductsActionOuterSingle.jsp</result>
+			<result name="error">/WEB-INF/outer/mts/outerErrorPage.jsp</result>
+		</action>
+
+		<!-- 個案 -->
+		<action name="showMtsProductsTypeCSingle" method="outerItemTypeCSingle" class="tw.com.mitac.thp.action.FrontMtsProductsAction">
+			<result>/WEB-INF/outer/mts/MtsProductsTypeCActionOuterSingle.jsp</result>
+			<result name="error">/WEB-INF/outer/mts/outerErrorPage.jsp</result>
+		</action>
+		<!-- 個案預覽 -->
+		<action name="viewMtsProductsTypeCSingle" method="viewItemTypeCSingle" class="tw.com.mitac.thp.action.FrontMtsProductsAction">
+			<result>/WEB-INF/outer/mts/MtsProductsTypeCActionOuterSingle.jsp</result>
+			<result name="error">/WEB-INF/outer/mts/outerErrorPage.jsp</result>
+		</action>
+	</package>
+	<package name="mts-login" namespace="/mts" extends="User-allow2">
+		<global-results>
+			<result name="error">/WEB-INF/outer/mts/outerErrorPage.jsp</result>
+		</global-results>
+
+		<!-- medicalAppointment1 / medicalAppointment2 -->
+		<action name="showMtsOrdersAppointment1" method="medicalAppointment1" class="tw.com.mitac.thp.action.FrontMtsOrdersAction">
+			<result>/WEB-INF/outer/mts/medicalAppointment1.jsp</result>
+		</action>
+		<action name="showMtsOrdersAppointmentConfirm" method="medicalAppointmentConfirm" class="tw.com.mitac.thp.action.FrontMtsOrdersAction">
+			<result>/WEB-INF/outer/mts/medicalAppointment2.jsp</result>
+		</action>
+		<action name="showMtsOrdersAppointment2" method="medicalAppointment2" class="tw.com.mitac.thp.action.FrontMtsOrdersAction">
+			<result>/WEB-INF/outer/mts/medicalAppointment2.jsp</result>
+		</action>
+		<action name="showMtsOrdersAppointmentValidate" method="medicalAppointmentValidate" class="tw.com.mitac.thp.action.FrontMtsOrdersAction">
+			<result>/WEB-INF/outer/mts/medicalAppointment2.jsp</result>
+		</action>
+		<!-- 第二醫療 -->
+		<action name="showMtsConsultant1" method="medicalConsultant1" class="tw.com.mitac.thp.action.FrontMtsOrdersAction">
+			<result>/WEB-INF/outer/mts/medicalConsultant1.jsp</result>
+		</action>
+		<action name="showMtsConsultantEdit" method="medicalConsultantEdit" class="tw.com.mitac.thp.action.FrontMtsOrdersAction">
+			<result>/WEB-INF/outer/mts/medicalConsultant1.jsp</result>
+		</action>
+		<action name="showMtsConsultantReview" method="medicalConsultantReview" class="tw.com.mitac.thp.action.FrontMtsOrdersAction">
+			<result>/WEB-INF/outer/mts/medicalConsultantReview.jsp</result>
+		</action>
+		<action name="showMtsConsultantConfirm" method="medicalConsultantConfirm" class="tw.com.mitac.thp.action.FrontMtsOrdersAction">
+			<result>/WEB-INF/outer/mts/medicalConsultant.jsp</result>
+		</action>
+		<action name="showMtsConsultant" method="medicalConsultant" class="tw.com.mitac.thp.action.FrontMtsOrdersAction">
+			<result>/WEB-INF/outer/mts/medicalConsultant.jsp</result>
+		</action>
+		<action name="showMtsConsultantValidate" method="medicalConsultantValidate" class="tw.com.mitac.thp.action.FrontMtsOrdersAction">
+			<result>/WEB-INF/outer/mts/medicalConsultant.jsp</result>
+		</action>
+
+		<!-- 會員中心：訂單 -->
+		<action name="showMtsOrdersList" method="mtsOrdersList" class="tw.com.mitac.thp.action.FrontMtsCustomerCenterAction">
+			<result>/WEB-INF/outer/mts/mtsOrdersList.jsp</result>
+		</action>
+		<action name="showMtsOrders" method="mtsOrders" class="tw.com.mitac.thp.action.FrontMtsCustomerCenterAction">
+			<result>/WEB-INF/outer/mts/mtsOrders.jsp</result>
+		</action>
+		<action name="showMtsOrdersNewFeedback" method="mtsOrdersNewFeedback" class="tw.com.mitac.thp.action.FrontMtsCustomerCenterAction">
+			<result>/WEB-INF/outer/mts/mtsOrders.jsp</result>
+		</action>
+	</package>
+</struts>

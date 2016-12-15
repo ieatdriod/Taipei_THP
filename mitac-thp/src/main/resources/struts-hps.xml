@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="hps2" namespace="/hps2" extends="Tenancy-allow">
+		<!-- 10 Round1 健康館 健康產品館首頁 -->
+		<action name="01_index" method="indexHpsPage" class="tw.com.mitac.thp.action.IndexHpsPageAction">
+			<result>01_index.jsp</result>
+		</action>
+		<!-- 16 Round2 健康館 產品頁列表 -->
+		<action name="02_product-list" method="outerMain" class="tw.com.mitac.thp.action.FrontHpsItemAction">
+			<result name="outerMain">02_product-list.jsp</result>
+			<result name="error">outerErrorPage.jsp</result>
+		</action>
+		<!-- 17 Round2 健康館 產品頁 -->
+		<action name="03_product" method="outerItemSingle" class="tw.com.mitac.thp.action.FrontHpsItemAction">
+			<result>03_product.jsp</result>
+			<result name="error">outerErrorPage.jsp</result>
+		</action>
+
+		<action name="08_brand" method="brand" class="tw.com.mitac.thp.action.FrontHpsItemAction">
+			<result>08_brand.jsp</result>
+		</action>
+		<action name="09_brand-list" class="tw.com.mitac.thp.action.FrontHpsBrandAction">
+			<result>09_brand-list.jsp</result>
+		</action>
+
+		<action name="10_topic-product-list" method="topicPL" class="tw.com.mitac.thp.action.FrontHpsItemAction">
+			<result>10_topic-product-list.jsp</result>
+		</action>
+
+		<!-- 產品搜尋 -->
+		<action name="11_search-result" method="outerSearch" class="tw.com.mitac.thp.action.FrontHpsItemAction">
+			<result>11_search-result.jsp</result>
+		</action>
+
+		<!-- 18 Round2 健康館 店家頁 -->
+		<action name="12_store" method="store" class="tw.com.mitac.thp.action.FrontHpsItemAction">
+			<result>12_store.jsp</result>
+		</action>
+
+		<action name="14_store-search-result" method="vendorSearch" class="tw.com.mitac.thp.action.FrontHpsItemAction">
+			<result>14_store-search-result.jsp</result>
+		</action>
+		<action name="25_store-noticed" method="vendorIndexPage" class="tw.com.mitac.thp.action.FrontHpsItemAction">
+			<result>25_store-noticed.jsp</result>
+		</action>
+		<action name="26_store-intro" method="vendorIndexPage" class="tw.com.mitac.thp.action.FrontHpsItemAction">
+			<result>26_store-intro.jsp</result>
+		</action>
+		<action name="27_store-contact" method="vendorIndexPage" class="tw.com.mitac.thp.action.FrontHpsItemAction">
+			<result>27_store-contact.jsp</result>
+		</action>
+
+		<action name="frontVendorName" method="frontVendorName" class="tw.com.mitac.thp.action.FrontHpsItemAction" />
+		<action name="queryTableCpsCity" method="queryTableCpsCity" class="tw.com.mitac.thp.util.FrontAjaxAction" />
+		<action name="queryTableCpsZipcode" method="queryTableCpsZipcode" class="tw.com.mitac.thp.util.FrontAjaxAction" />
+		<action name="inputCart" method="addItem" class="tw.com.mitac.thp.action.FrontBuyAction" />
+		<action name="ajaxAddFavoriteItem" method="ajaxAddFavoriteItem" class="tw.com.mitac.thp.util.FrontAjaxAction" />
+		<action name="ajaxDelFavoriteItem" method="ajaxDelFavoriteItem" class="tw.com.mitac.thp.util.FrontAjaxAction" />
+	</package>
+
+	<package name="hps2-login" namespace="/hps2" extends="User-allow2">
+		<action name="alterCart2" method="editQuantity2" class="tw.com.mitac.thp.action.FrontBuyAction" />
+		<action name="deleteCartItem2" method="deleteItem2" class="tw.com.mitac.thp.action.FrontBuyAction" />
+
+		<!-- 19 Round2 健康館 購物車 -->
+		<action name="04_store-basket" method="viewCart" class="tw.com.mitac.thp.action.FrontBuyAction">
+			<result>04_store-basket.jsp</result>
+		</action>
+		<!-- 20 Round4 健康館 購物車結帳頁 -->
+		<action name="05_store-shipping" method="viewOrder" class="tw.com.mitac.thp.action.FrontBuyAction">
+			<result name="input" type="redirect">04_store-basket</result>
+			<result>05_store-shipping.jsp</result>
+		</action>
+
+		<action name="06_store-payment" class="tw.com.mitac.thp.action.FrontAction">
+			<result>06_store-payment.jsp</result>
+		</action>
+		<action name="07_order-complete" class="tw.com.mitac.thp.action.FrontAction">
+			<result>07_order-complete.jsp</result>
+		</action>
+
+		<action name="16_02_account-password" class="tw.com.mitac.thp.action.FrontHpsMemberAction">
+			<result>16_02_account-password.jsp</result>
+		</action>
+
+		<action name="17_01_order-record" method="memberCenterOrder" class="tw.com.mitac.thp.action.FrontMemberCenterAction">
+			<result>17_01_order-record.jsp</result>
+		</action>
+		<!-- <action name="17_02_order-record-detail" method="memberCenterOrderDetail" class="tw.com.mitac.thp.action.FrontMemberCenterAction"> 
+			<result>17_02_order-record-detail.jsp</result> </action> -->
+		<action name="17_02_order-record-detail" class="tw.com.mitac.thp.action.FrontAction">
+			<result>17_02_order-record-detail.jsp</result>
+		</action>
+		<action name="17_03_order-contact" class="tw.com.mitac.thp.action.FrontAction">
+			<result>17_03_order-contact.jsp</result>
+		</action>
+
+		<action name="18_gold-coupon" method="memberCenterBonus" class="tw.com.mitac.thp.action.FrontMemberCenterAction">
+			<result>18_gold-coupon.jsp</result>
+		</action>
+
+		<action name="20_favorite-product" method="favoriteProduct" class="tw.com.mitac.thp.action.FrontMemberCenterAction">
+			<result>20_favorite-product.jsp</result>
+		</action>
+		<!-- <action name="23_faq" method="execute" class="tw.com.mitac.thp.action.FrontAction"> -->
+		<action name="23_faq" method="execute" class="tw.com.mitac.thp.action.FrontHpsCoreFaqTypeAction">
+			<result name="success">23_faq.jsp</result>
+			<result name="error1">23_faq1.jsp</result>
+			<result name="error2">23_faq2.jsp</result>
+		</action>
+		<action name="24_account-contact" class="tw.com.mitac.thp.action.FrontAction">
+			<result>24_account-contact.jsp</result>
+		</action>
+	</package>
+
+	<!-- 以下 等待刪除或整理 -->
+	<package name="hps-pages-login" namespace="/pages" extends="User-allow2">
+		<!-- 19 Round2 健康館 購物車 -->
+		<action name="shoppingCar" method="viewCart" class="tw.com.mitac.thp.action.FrontBuyAction">
+			<result>shoppingCar.jsp</result>
+		</action>
+
+		<!-- 20 Round4 健康館 購物車結帳頁 -->
+		<action name="shoppingCasher" method="viewOrder" class="tw.com.mitac.thp.action.FrontBuyAction">
+			<result name="input" type="redirect">shoppingCar</result>
+			<result>shoppingCasher.jsp</result>
+		</action>
+
+		<action name="checkoutConfirm" method="checkoutConfirm" class="tw.com.mitac.thp.action.FrontBuyAction">
+			<result>checkoutConfirm.jsp</result>
+		</action>
+
+		<action name="memberCenterOrder" method="memberCenterOrder" class="tw.com.mitac.thp.action.FrontMemberCenterAction">
+			<result>memberCenterOrder.jsp</result>
+		</action>
+		<action name="memberCenterOrderDetail" method="memberCenterOrderDetail" class="tw.com.mitac.thp.action.FrontMemberCenterAction">
+			<result>memberCenterOrderDetail.jsp</result>
+		</action>
+		<action name="memberCenterBonus" method="memberCenterBonus" class="tw.com.mitac.thp.action.FrontMemberCenterAction">
+			<result>memberCenterBonus.jsp</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<!-- 不進行半轉全 請註明原因 -->
+	<util:list id="halfwidthToFullwidthFalse" list-class="java.util.ArrayList">
+		<!-- FIX AREA -->
+		<value>SysConstant</value><!-- code -->
+		<value>SysJobScheduleSetting</value><!-- code -->
+		<!-- FIX AREA -->
+
+		<value>CpsMeetingCfg</value><!-- code -->
+		<value>CpsKeywords</value><!-- log -->
+
+		<value>CpsNews</value><!-- html -->
+		<value>CpsEmailHistory</value><!-- html -->
+		<value>CpsSmsTemplate</value><!-- html -->
+		<value>CpsSmsHistory</value><!-- html -->
+		<value>MtsAppointment</value><!-- 病歷資料用逗號隔開 -->
+
+		<value>MtsDoctor</value><!-- 逗號 -->
+		<value>BhsOperate</value><!-- 逗號 -->
+		<value>CpsVendor</value><!-- 逗號 -->
+		<value>MtsMenu</value><!-- 逗號 -->
+		<value>BhsMenu</value><!-- 逗號 -->
+
+	</util:list>
+
+	<!-- 基本風格順序 -->
+	<util:list id="leftColumnList" list-class="java.util.ArrayList">
+		<value>dataOrder</value>
+		<value>sysid</value>
+		<value>parentSysid</value>
+		<value>dataId</value>
+		<value>name</value>
+		<value>billno</value>
+		<value>sequenceno</value>
+		<value>billStatus</value>
+
+	</util:list>
+
+	<util:list id="rightColumnList" list-class="java.util.ArrayList">
+		<value>remark</value>
+		<value>creator</value>
+		<value>creationDate</value>
+		<value>operator</value>
+		<value>operationDate</value>
+	</util:list>
+
+	<util:map id="languageTypeMap" map-class="java.util.LinkedHashMap">
+		<entry key="en_US" value="English" />
+		<entry key="zh_TW" value="繁體中文" />
+		<entry key="zh_CN" value="简体中文" />
+	</util:map>
+
+	<util:list id="skipChangeLocaleList" list-class="java.util.ArrayList">
+		<!-- FIX AREA -->
+		<value>SysAplog</value>
+		<value>SysBillnomanagement</value>
+		<value>SysConstant</value>
+		<value>SysJobScheduleSetting</value>
+		<value>SysSetting</value>
+		<!-- FIX AREA -->
+
+		<!-- <value>CpsConfig</value> -->
+		<value>CpsMeetingCfg</value>
+		<value>CpsMember</value>
+		<value>CpsQa</value>
+		<value>CpsKeywords</value><!-- 關鍵字查詢次數紀錄 -->
+		<value>HpsBillSalesOrder</value>
+		<value>BhsOrders</value>
+		<value>MtsOrders</value>
+		<value>CpsAdvertisement</value>
+		<value>CpsAdvertisementRent</value>
+		<value>MtsCollaboration</value>
+		<value>BhsCollaboration</value>
+		<value>CpsSiteMember</value>
+
+		<value>CpsConfigAd</value>
+		<value>MtsAdsA</value>
+		<value>MtsAdsB</value>
+		<value>BhsAdsA</value>
+		<value>BhsAdsB</value>
+
+		<value>MtsAppointment</value>
+		<value>MtsAppointmentCaseLink</value>
+
+		<value>CpsRegistration</value>
+		<value>CpsCountry</value>
+		<value>CpsMeeting</value>
+		<value>CpsMemberForEntity</value>
+
+		<value>CpsEmailTemplate</value><!-- 目前只寄英文信 -->
+	</util:list>
+
+	<!-- 日期預設為空值 若無設定則為當天 -->
+	<util:list id="dateDefaultNullList" list-class="java.util.ArrayList">
+		<value>birthday</value>
+		<value>auditDate</value>
+		<value>closeDate</value>
+		<value>acturlOrderDate</value>
+		<value>applyDate</value>
+		<value>approveDate</value>
+		<value>qaDate</value>
+	</util:list>
+
+	<!-- 日期預設為9999/12/31 若無設定則為當天 -->
+	<util:list id="dateDefaultMaxList" list-class="java.util.ArrayList">
+		<value>endDate</value>
+		<value>latestEffectiveDate</value>
+
+		<value>applyEndDate</value>
+		<value>recommandEndDate</value>
+		<value>contractEndDate</value>
+	</util:list>
+
+	<util:list id="pictureExtention" list-class="java.util.ArrayList">
+		<value>.jpg</value>
+		<value>.jpeg</value>
+		<value>.png</value>
+		<value>.bmp</value>
+		<value>.gif</value>
+	</util:list>
+	<util:list id="csvFileExtention" list-class="java.util.ArrayList">
+		<value>.csv</value>
+	</util:list>
+	<util:list id="resultFileExtention" list-class="java.util.ArrayList">
+		<value>.jpg</value>
+		<value>.jpeg</value>
+		<value>.png</value>
+		<value>.bmp</value>
+		<value>.gif</value>
+		<value>.pdf</value>
+	</util:list>
+
+	<util:map id="outerPageSearchRules" map-class="java.util.LinkedHashMap">
+		<entry key="name" value="依名稱" />
+		<!-- <entry key="type" value="依類別" /> -->
+		<!-- <entry key="id" value="依產品編號" /> -->
+	</util:map>
+
+	<import resource="spring-resource-readonly.xml" />
+	<import resource="spring-resource-hidden.xml" />
+	<import resource="spring-resource-frozen.xml" />
+	<import resource="spring-resource-textarea.xml" />
+	<import resource="spring-resource-texthtml.xml" />
+	<import resource="spring-resource-info-star.xml" />
+
+	<import resource="spring-resource-pages.xml" />
+</beans>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						http://www.springframework.org/schema/aop
+						http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context-3.0.xsd
+						http://www.springframework.org/schema/tx
+						http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+						http://www.springframework.org/schema/util
+						http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+	<util:list id="packagesToScan" list-class="java.util.ArrayList">
+		<value>tw.com.mitac.miaa.bean</value>
+		<!-- <value>tw.com.mitac.jqgrid.bean</value> -->
+		<value>tw.com.mitac.thp.bean</value>
+	</util:list>
+	<util:list id="mappingResources" list-class="java.util.ArrayList">
+		<value>SysColumnConfig.hbm.xml</value>
+
+		<!-- <value>tw/com/mitac/thp/bean/CpsQa.hbm.xml</value> -->
+		<value>tw/com/mitac/thp/bean/CpsMeeting.hbm.xml</value>
+		<!-- <value>tw/com/mitac/thp/bean/CpsMeetingAttendance.hbm.xml</value>TIME -->
+		<value>tw/com/mitac/thp/bean/CpsMeetingReportDetails.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/CpsSmsSend.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/HpsPromoteBonus.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/HpsBillSalesOrder.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/MtsOrders.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/MtsRecommand.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/BhsOrders.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/BhsRecommand.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/BhsVendorMore.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/HpsCoreAp.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/HpsCoreApDetail.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/HpsCoreAr.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/HpsCoreArSoDetail.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/HpsVendorAr.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/HpsVendorArDetail.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/HpsVendorAp.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/HpsVendorApDetail.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/HpsPromoteCoupon.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/MtsCollaboration.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/BhsCollaboration.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/MtsProducts.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/BhsProducts.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/BhsTechnology.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/BhsHighlight.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/MtsCooperation.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/MtsHighlight.hbm.xml</value>
+		<!-- <value>tw/com/mitac/thp/bean/MtsDoctor.hbm.xml</value> -->
+		<value>tw/com/mitac/thp/bean/CpsExhibitionVendor.hbm.xml</value>
+		<!-- <value>tw/com/mitac/thp/bean/BhsOperate.hbm.xml</value> -->
+		<value>tw/com/mitac/thp/bean/BhsRecommandLink.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/MtsAppointment.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/MtsVendorProfile.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/BhsVendorProfile.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/CpsVendor.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/CpsHottopic.hbm.xml</value>
+		<value>tw/com/mitac/thp/bean/CpsEpaper.hbm.xml</value>
+
+	</util:list>
+	<util:properties id="hibernateProperties">
+		<!-- HQL方言 -->
+		<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+
+		<!-- 可由log4j控制 -->
+		<prop key="hibernate.show_sql">true</prop>
+		<prop key="hibernate.format_sql">false</prop>
+
+		<!-- 解決org.apache.catalina.core.standardwrapper unload -->
+		<prop key="hibernate.connection.release_mode">auto</prop>
+		<prop key="hibernate.autoReconnect">true</prop>
+
+		<!-- 減少資料庫連結次數 不影響HQL、Criteria可覆寫 -->
+		<prop key="hibernate.jdbc.fetch_size">50</prop>
+		<prop key="hibernate.jdbc.batch_size">50</prop>
+		<!-- C3P0 連接池設定 -->
+		<prop key="hibernate.c3p0.min_size">10</prop>
+		<prop key="hibernate.c3p0.max_size">1000</prop>
+		<!--連結耗盡時，一次性增加的連結數量 -->
+		<prop key="hibernate.c3p0.acquire_increment">2</prop>
+		<prop key="hibernate.c3p0.timeout">30</prop>
+		<prop key="hibernate.c3p0.idle_test_period">30</prop>
+		<!-- <prop key="hibernate.c3p0.timeout">300</prop> <prop key="hibernate.c3p0.idle_test_period">100</prop> -->
+		<prop key="hibernate.c3p0.max_statements">0</prop>
+		<!-- 每次都驗證連結是否可用 -->
+		<prop key="hibernate.c3p0.validate">true</prop>
+	</util:properties>
+	<!-- <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager"> <property name="sessionFactory" 
+		ref="sessionFactory" /> </bean> <aop:config proxy-target-class="true"> <aop:pointcut id="servicePoint1" expression="execution 
+		(* com.xxx.function..service.*.*Service*.*(..))" /> <aop:advisor pointcut-ref="servicePoint1" id="txAdvisor1" advice-ref="txAdvice" 
+		/> </aop:config> <tx:advice id="txAdvice" transaction-manager="transactionManager"> <tx:attributes> <tx:method name="find*" 
+		read-only="true" /> <tx:method name="get*" read-only="true" /> <tx:method name="query*" read-only="true" /> <tx:method name="load*" 
+		read-only="true" /> <tx:method name="add*" propagation="REQUIRED" rollback-for="java.lang.Exception" /> <tx:method name="create*" 
+		propagation="REQUIRED" rollback-for="java.lang.Exception" /> <tx:method name="save*" propagation="REQUIRED" rollback-for="java.lang.Exception" 
+		/> <tx:method name="update*" propagation="REQUIRED" rollback-for="java.lang.Exception" /> <tx:method name="modify*" propagation="REQUIRED" 
+		rollback-for="java.lang.Exception" /> <tx:method name="delete*" propagation="REQUIRED" rollback-for="java.lang.Exception" 
+		/> <tx:method name="remove*" propagation="REQUIRED" rollback-for="java.lang.Exception" /> <tx:method name="apply*" propagation="REQUIRED" 
+		rollback-for="java.lang.Exception" /> <tx:method name="handle*" propagation="REQUIRED" rollback-for="java.lang.Exception" 
+		/> </tx:attributes> </tx:advice> -->
+</beans>

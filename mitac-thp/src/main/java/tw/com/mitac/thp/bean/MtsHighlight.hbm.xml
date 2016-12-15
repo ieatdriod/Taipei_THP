@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/6/11 ?????? 10:48:13 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+	<class name="tw.com.mitac.thp.bean.MtsHighlight" table="mts_highlight" catalog="thp" optimistic-lock="version">
+		<id name="sysid" type="string">
+			<column name="SYSID" length="45" />
+			<generator class="assigned" />
+		</id>
+		<property name="creationDate" type="string">
+			<column name="CREATION_DATE" not-null="true">
+				<comment>&#229;&#187;&#186;&#231;&#171;&#139;&#230;&#151;&#165;&#230;&#156;&#159;</comment>
+			</column>
+		</property>
+		<property name="creator" type="string">
+			<column name="CREATOR" not-null="true">
+				<comment>&#229;&#187;&#186;&#231;&#171;&#139;&#232;&#128;&#133;</comment>
+			</column>
+		</property>
+		<property name="operator" type="string">
+			<column name="OPERATOR" not-null="true">
+				<comment>&#231;&#182;&#173;&#232;&#173;&#183;&#228;&#186;&#186;&#229;&#147;&#161;</comment>
+			</column>
+		</property>
+		<property name="operationDate" type="string">
+			<column name="OPERATION_DATE" not-null="true">
+				<comment>&#231;&#182;&#173;&#232;&#173;&#183;&#230;&#151;&#165;&#230;&#156;&#159;</comment>
+			</column>
+		</property>
+		<property name="remark" type="string">
+			<column name="REMARK" length="65535">
+				<comment>&#229;&#130;&#153;&#232;&#168;&#187;</comment>
+			</column>
+		</property>
+		<property name="dataOrder" type="java.lang.Integer">
+			<column name="DATA_ORDER" not-null="true">
+				<comment>&#230;&#142;&#146;&#229;&#186;&#143;</comment>
+			</column>
+		</property>
+		<property name="isEnabled" type="java.lang.Boolean">
+			<column name="IS_ENABLED" not-null="true">
+				<comment>&#229;&#149;&#159;&#231;&#148;&#168;Y/&#229;&#129;&#156;&#231;&#148;&#168;N</comment>
+			</column>
+		</property>
+		<property name="name" type="string">
+			<column name="HIGHLIGHT_NAME" not-null="true">
+				<comment>Highlight&#229;&#144;&#141;&#231;&#168;&#177;</comment>
+			</column>
+		</property>
+		<property name="vendorSysid" type="string">
+			<column name="VENDOR_SYSID" length="45" not-null="true">
+				<comment>&#228;&#190;&#155;&#230;&#135;&#137;&#229;&#149;&#134;&#231;&#179;&#187;&#231;&#181;&#177;&#228;&#187;&#163;&#232;&#153;&#159;</comment>
+			</column>
+		</property>
+		<property name="highlightSummary" type="string">
+			<column name="HIGHLIGHT_SUMMARY">
+				<comment>&#230;&#145;&#152;&#232;&#166;&#129;&#228;&#187;&#139;&#231;&#180;&#185;</comment>
+			</column>
+		</property>
+		<property name="highlightSummaryImg" type="string">
+			<column name="HIGHLIGHT_SUMMARY_IMG">
+				<comment>&#230;&#145;&#152;&#232;&#166;&#129;&#229;&#156;&#150;&#231;&#164;&#186;</comment>
+			</column>
+		</property>
+		<property name="highlightProfileFull" type="string">
+			<column name="HIGHLIGHT_PROFILE_FULL" length="65535">
+				<comment>&#231;&#176;&#161;&#228;&#187;&#139;</comment>
+			</column>
+		</property>
+		<property name="highlightText2" type="string">
+			<column name="HIGHLIGHT_TEXT_2" length="65535">
+				<comment>&#231;&#137;&#185;&#232;&#137;&#178;</comment>
+			</column>
+		</property>
+
+		<set cascade="all-delete-orphan" lazy="false" name="detailSet" order-by="sysid" sort="unsorted" table="mts_info_link">
+			<key column="SOURCE_SYSID" />
+			<!-- foreign-key="SYSID" on-delete="cascade" not-null="true" -->
+			<one-to-many class="tw.com.mitac.thp.bean.MtsInfoLink" />
+		</set>
+		
+		<set cascade="all-delete-orphan" lazy="false" name="detailSet2" order-by="sysid" sort="unsorted" table="mts_ads_c">
+			<key column="SOURCE_SYSID" />
+			<!-- foreign-key="SYSID" on-delete="cascade" not-null="true" -->
+			<one-to-many class="tw.com.mitac.thp.bean.MtsAdsC" />
+		</set>
+	</class>
+</hibernate-mapping>

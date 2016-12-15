@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<!-- 隱藏欄位 -->
+	<util:list id="allHiddenList" list-class="java.util.ArrayList">
+		<!-- FIX AREA -->
+		<value>sysid</value>
+		<value>parentSysid</value>
+		<value>sourceType</value>
+		<value>password</value>
+		<value>isSnq</value>
+		<value>sourceId</value>
+		<!-- <value>qaDepartment</value> -->
+		<value>emailVerifyCode</value>
+		<value>emailVerifyCodeTime</value>
+		<value>languageType</value>
+		<!-- FIX AREA -->
+
+		<value>isRead</value>
+	</util:list>
+	<!-- 排除 -->
+	<util:map id="excludeHiddenMap" map-class="java.util.LinkedHashMap">
+		<entry key="sourceType">
+			<util:list list-class="java.util.ArrayList">
+				<value>CpsMember</value>
+				<value>CpsQaFeedback</value>
+				<value>MtsOrdersFeedback</value>
+				<value>BhsOrdersFeedback</value>
+				<value>CpsAdvertisementRent</value>
+			</util:list>
+		</entry>
+	</util:map>
+
+	<util:map id="hiddenMap" map-class="java.util.LinkedHashMap">
+		<entry key="CpsSiteMember">
+			<util:list list-class="java.util.ArrayList">
+				<!-- <value>email</value> -->
+				<value>oauthId</value>
+				<value>oauthType</value>
+				<value>isActivate</value>
+			</util:list>
+		</entry>
+
+		<entry key="HpsVendorItem">
+			<util:list list-class="java.util.ArrayList">
+				<value>mainPictureFilePath</value>
+			</util:list>
+		</entry>
+
+		<entry key="MtsOrders">
+			<util:list list-class="java.util.ArrayList">
+				<value>transactionAmount</value>
+			</util:list>
+		</entry>
+
+		<entry key="CpsMeeting">
+			<util:list list-class="java.util.ArrayList">
+				<value>videoConferenceId</value>
+				<value>videoConferenceType</value>
+				<value>meetingRoomId</value>
+				<value>startUrl</value>
+				<value>orderItemSysid</value>
+				<value>entitySysid</value>
+				<value>videoConferenceAddress</value>
+				<value>meetingStatus</value>
+			</util:list>
+		</entry>
+
+		<entry key="CpsMeetingStat">
+			<util:list list-class="java.util.ArrayList">
+				<value>dateStat</value>
+				<value>remark</value>
+			</util:list>
+		</entry>
+		<entry key="CpsMeetingReportDetails">
+			<util:list list-class="java.util.ArrayList">
+				<value>meetingRoomId</value>
+				<value>cpsMeetingSysid</value>
+				<value>remark</value>
+			</util:list>
+		</entry>
+
+		<entry key="BhsMarquee">
+			<util:list list-class="java.util.ArrayList">
+				<value>marqueeCreator</value>
+				<value>sourceId</value>
+			</util:list>
+		</entry>
+
+		<entry key="BhsInfoLink">
+			<util:list list-class="java.util.ArrayList">
+				<value>fileName</value>
+			</util:list>
+		</entry>
+
+		<entry key="MtsDoctorItem">
+			<util:list list-class="java.util.ArrayList">
+				<value>remark</value>
+			</util:list>
+		</entry>
+
+		<entry key="MtsInfoLink">
+			<util:list list-class="java.util.ArrayList">
+				<value>fileName</value>
+			</util:list>
+		</entry>
+
+		<entry key="BhsVendorProfile">
+			<util:list list-class="java.util.ArrayList">
+				<value>vendorName</value>
+			
+				<value>vendorHighlight</value>
+				<value>vendorProfileSummary</value>
+			</util:list>
+		</entry>
+
+		<entry key="MtsVendorProfile">
+			<util:list list-class="java.util.ArrayList">
+				<value>vendorName</value>
+				
+				<value>vendorLiveShow</value>
+				<value>vendorProfileSummary</value>
+			</util:list>
+		</entry>
+
+		<entry key="MtsCollaboration">
+			<util:list list-class="java.util.ArrayList">
+				<value>siteMemberSysid</value>
+				<value>collaborationProducts</value>
+
+				<value>collaborationVideoOneLocal</value>
+				<value>collaborationVideoOneTaiwan</value>
+				<value>collaborationVideoTwoLocal</value>
+				<value>collaborationVideoTwoTaiwan</value>
+			</util:list>
+		</entry>
+		<entry key="BhsCollaboration">
+			<util:list list-class="java.util.ArrayList">
+				<value>siteMemberSysid</value>
+
+				<value>collaborationVideoOneLocal</value>
+				<value>collaborationVideoOneTaiwan</value>
+				<value>collaborationVideoTwoLocal</value>
+				<value>collaborationVideoTwoTaiwan</value>
+			</util:list>
+		</entry>
+
+		<entry key="CpsExhibitionVendorItem">
+			<util:list list-class="java.util.ArrayList">
+				<value>exhibitionVendorBimg</value>
+				<value>exhibitionVendorSimg</value>
+			</util:list>
+		</entry>
+
+		<entry key="MtsAdsC">
+			<util:list list-class="java.util.ArrayList">
+				<value>adsImage</value>
+				<value>adsUrl</value>
+			</util:list>
+		</entry>
+
+		<entry key="BhsAdsC">
+			<util:list list-class="java.util.ArrayList">
+				<value>adsImage</value>
+				<value>adsUrl</value>
+			</util:list>
+		</entry>
+
+		<entry key="CpsSiteMemberForSuccessor">
+			<util:list list-class="java.util.ArrayList">
+				<value>oauthId</value>
+				<value>oauthType</value>
+			</util:list>
+		</entry>
+
+		<entry key="CpsVendor">
+			<util:list list-class="java.util.ArrayList">
+				<value>entitySysid</value>
+			</util:list>
+		</entry>
+
+		<entry key="CpsMeetingAttendance">
+			<util:list list-class="java.util.ArrayList">
+				<value>attendanceCpsMemberSysid</value>
+				<value>attendanceCpsSitememberSysid</value>
+			</util:list>
+		</entry>
+
+		<entry key="CpsConfig">
+			<util:list list-class="java.util.ArrayList">
+				<value>siteLogo</value>
+			</util:list>
+		</entry>
+
+		<entry key="MtsAppointment">
+			<util:list list-class="java.util.ArrayList">
+				<value>appointmentVendor</value>
+				<value>otherHelps</value>
+
+				<value>appointmentDateOneLocal</value>
+				<value>appointmentDateOneTaiwan</value>
+				<value>appointmentDateTwoLocal</value>
+				<value>appointmentDateTwoTaiwan</value>
+			</util:list>
+		</entry>
+
+		<entry key="CpsHottopicAds">
+			<util:list list-class="java.util.ArrayList">
+				<value>adsImage</value>
+			</util:list>
+		</entry>
+
+		<entry key="MtsArticle">
+			<util:list list-class="java.util.ArrayList">
+				<value>articleTypeSysid</value>
+				<value>forumName</value>
+				<value>mtsArticleType</value>
+			</util:list>
+		</entry>
+
+		<entry key="BhsArticle">
+			<util:list list-class="java.util.ArrayList">
+				<value>bhsArticleTypeSysid</value>
+				<value>forumName</value>
+				<value>bhsArticleType</value>
+			</util:list>
+		</entry>
+
+		<entry key="CpsQa">
+			<util:list list-class="java.util.ArrayList">
+				<value>qaDepartment</value>
+			</util:list>
+		</entry>
+
+		<entry key="CpsEmailTemplate">
+			<util:list list-class="java.util.ArrayList">
+				<value>isSystem</value>
+			</util:list>
+		</entry>
+
+		<entry key="CpsKeywords">
+			<util:list list-class="java.util.ArrayList">
+				<value>entitySysid</value>
+				<value>initSearchCount</value>
+			</util:list>
+		</entry>
+
+		<entry key="CpsEpaper">
+			<util:list list-class="java.util.ArrayList">
+				<value>exceptionObjects</value>
+			</util:list>
+		</entry>
+		
+		<entry key="CpsMemberForEntity">
+			<util:list list-class="java.util.ArrayList">
+				<value>sourceSysid</value>
+			</util:list>
+		</entry>
+		
+		<entry key="CpsMeetingCfg">
+			<util:list list-class="java.util.ArrayList">
+				<value>passwordStr</value>
+			</util:list>
+		</entry>
+		
+		
+		<entry key="CpsRegistration">
+			<util:list list-class="java.util.ArrayList">
+				<value>sourceSysid</value>
+			</util:list>
+		</entry>
+	</util:map>
+</beans>

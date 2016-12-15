@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="app" namespace="/app" extends="User-allow">
+		<action name="vendorUploadInit*" method="vendorUploadInit" class="tw.com.mitac.thp.action.app.VendorUploadAction">
+			<result>/WEB-INF/app/vendorUpload.jsp</result>
+		</action>
+		<action name="vendorUpload" method="vendorUpload" class="tw.com.mitac.thp.action.app.VendorUploadAction">
+			<result>/WEB-INF/app/vendorUpload.jsp</result>
+		</action>
+		<action name="vendorUploadRemove" method="vendorUploadRemove" class="tw.com.mitac.thp.action.app.VendorUploadAction">
+			<result>/WEB-INF/app/vendorUpload.jsp</result>
+		</action>
+		<action name="vendorUploadFile" method="vendorUploadFile" class="tw.com.mitac.thp.action.app.VendorUploadAction">
+			<result>/WEB-INF/app/vendorUploadFile.jsp</result>
+		</action>
+		<action name="vendorUploadBrowse" method="vendorUploadBrowse" class="tw.com.mitac.thp.action.app.VendorUploadAction">
+			<result>/WEB-INF/app/vendorUploadBrowse.jsp</result>
+		</action>
+
+		<action name="hpsInviteVendor" method="hpsInviteVendor" class="tw.com.mitac.thp.action.app.HpsInviteVendorAction">
+			<result>/WEB-INF/app/hpsInviteVendor.jsp</result>
+		</action>
+		<action name="hpsInviteVendorSend1" method="hpsInviteVendorSend1" class="tw.com.mitac.thp.action.app.HpsInviteVendorAction">
+			<result>/WEB-INF/app/hpsInviteVendor.jsp</result>
+		</action>
+		<action name="hpsInviteVendorSend2" method="hpsInviteVendorSend2" class="tw.com.mitac.thp.action.app.HpsInviteVendorAction">
+			<result>/WEB-INF/app/hpsInviteVendor.jsp</result>
+		</action>
+
+		<action name="SiteConfig1" method="init" class="tw.com.mitac.thp.action.app.SiteConfigAction">
+			<result>/WEB-INF/app/SiteConfig.jsp</result>
+		</action>
+
+		<action name="SiteConfig2" method="save" class="tw.com.mitac.thp.action.app.SiteConfigAction">
+			<result>/WEB-INF/app/SiteConfig.jsp</result>
+		</action>
+
+		<action name="TopMarquee1" method="init" class="tw.com.mitac.thp.action.app.TopMarqueeAction">
+			<result>/WEB-INF/app/TopMarquee.jsp</result>
+		</action>
+
+		<action name="TopMarquee2" method="save" class="tw.com.mitac.thp.action.app.TopMarqueeAction">
+			<result>/WEB-INF/app/TopMarquee.jsp</result>
+		</action>
+
+		<action name="OpenVideoConference" method="init" class="tw.com.mitac.thp.action.app.OpenVideoConferenceAction">
+			<result>/WEB-INF/app/OpenVideoConference.jsp</result>
+		</action>
+
+		<action name="menuLinkEdit" class="tw.com.mitac.thp.login.IsLoginAction">
+			<result>/WEB-INF/app/menuLinkEdit2.jsp</result>
+		</action>
+
+		<action name="collaborationActionEdit" class="tw.com.mitac.thp.login.IsLoginAction">
+			<result>/WEB-INF/app/collaborationActionEdit.jsp</result>
+		</action>
+	</package>
+
+	<package name="WeekDemo" namespace="/WeekDemo" extends="User-allow">
+		<action name="CpsMeetingCal" method="init" class="tw.com.mitac.thp.action.app.CpsMeetingCalAction">
+			<result>CpsMeetingCal.jsp</result>
+		</action>
+	</package>
+
+	<package name="chat2" namespace="/chat2" extends="User-allow">
+		<action name="*" class="tw.com.mitac.thp.login.IsLoginAction">
+			<result>{1}.jsp</result>
+		</action>
+	</package>
+
+	<package name="colaboSpecialEditPages2" namespace="/pages2" extends="User-allow">
+		<action name="BhsCollaborationAction_edit" method="edit" class="tw.com.mitac.thp.action.BhsCollaborationAction">
+			<result name="edit">BhsCollaborationActionEdit.jsp</result>
+		</action>
+		<action name="BhsCollaborationAction_ajaxFeedbackList" method="ajaxFeedbackList" class="tw.com.mitac.thp.action.BhsCollaborationAction" />
+		<action name="MtsCollaborationAction_edit" method="edit" class="tw.com.mitac.thp.action.MtsCollaborationAction">
+			<result name="edit">MtsCollaborationActionEdit.jsp</result>
+		</action>
+		<action name="MtsCollaborationAction_ajaxFeedbackList" method="ajaxFeedbackList" class="tw.com.mitac.thp.action.MtsCollaborationAction" />
+		<action name="MtsAppointmentAction_edit" method="edit" class="tw.com.mitac.thp.action.MtsAppointmentAction">
+			<result name="edit">MtsAppointmentActionEdit.jsp</result>
+		</action>
+		<action name="MtsAppointmentAction_ajaxFeedbackList" method="ajaxFeedbackList" class="tw.com.mitac.thp.action.MtsAppointmentAction" />
+		<action name="MtsAppointmentAction_ajaxFileList" method="ajaxFileList" class="tw.com.mitac.thp.action.MtsAppointmentAction" />
+	</package>
+</struts>

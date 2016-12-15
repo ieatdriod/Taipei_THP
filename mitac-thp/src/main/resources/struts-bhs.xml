@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="bhs" namespace="/bhs" extends="Tenancy-allow">
+		<action name="showBhsArticleMain" method="outerMain" class="tw.com.mitac.thp.action.BhsArticleAction">
+			<result name="outerMain">/WEB-INF/outer/bhs/BhsArticleActionOuterMain.jsp</result>
+		</action>
+		<action name="showBhsArticleSingle" method="outerItemSingle" class="tw.com.mitac.thp.action.FrontBhsArticleAction">
+			<result>/WEB-INF/outer/bhs/BhsArticleActionOuterSingle.jsp</result>
+			<result name="error">/WEB-INF/outer/bhs/outerErrorPage.jsp</result>
+		</action>
+		<action name="showItemSingle" method="outerItemSingle" class="tw.com.mitac.thp.action.BhsArticleAction">
+			<result>/WEB-INF/outer/bhs/BhsArticleActionOuterSingle.jsp</result>
+			<result name="error">/WEB-INF/outer/bhs/outerErrorPage.jsp</result>
+		</action>
+		<action name="showBhsVendorProfileMain" method="outerMain" class="tw.com.mitac.thp.action.FrontBhsVendorProfileAction">
+			<result name="outerMain">/WEB-INF/outer/bhs/BhsVendorProfileActionOuterMain.jsp</result>
+		</action>
+		<action name="showBhsProductsSingle" method="outerItemSingle" class="tw.com.mitac.thp.action.FrontBhsProductsAction">
+			<result>/WEB-INF/outer/bhs/BhsProductsActionOuterSingle.jsp</result>
+			<result name="error">/WEB-INF/outer/bhs/outerErrorPage.jsp</result>
+		</action>
+
+		<action name="showBhsTopEnterpriseList" method="bhsTopEnterpriseList" class="tw.com.mitac.thp.action.FrontBhsTopEnterpriseAction">
+			<result>/WEB-INF/outer/bhs/BhsTopEnterpriseList.jsp</result>
+		</action>
+	</package>
+	<package name="bhs-login" namespace="/bhs" extends="User-allow2">
+		<global-results>
+			<result name="error">/WEB-INF/outer/bhs/outerErrorPage.jsp</result>
+		</global-results>
+
+		<!-- 合作需求單 -->
+		<action name="showBhsEnterpriseData" method="enterpriseData" class="tw.com.mitac.thp.action.FrontBhsOrdersAction">
+			<result>/WEB-INF/outer/bhs/enterpriseData.jsp</result>
+		</action>
+		<action name="showBhsEnterpriseData2" method="enterpriseData2" class="tw.com.mitac.thp.action.FrontBhsOrdersAction">
+			<result>/WEB-INF/outer/bhs/enterpriseData2.jsp</result>
+		</action>
+		<action name="showBhsEnterpriseData2Submit" method="enterpriseData2Submit" class="tw.com.mitac.thp.action.FrontBhsOrdersAction">
+			<result>/WEB-INF/outer/bhs/enterpriseData2.jsp</result>
+		</action>
+
+		<!-- 會員中心：需求單 -->
+		<action name="showBhsOrdersList" method="bhsOrdersList" class="tw.com.mitac.thp.action.FrontBhsCustomerCenterAction">
+			<result>/WEB-INF/outer/bhs/bhsOrdersList.jsp</result>
+		</action>
+		<action name="showBhsOrders" method="bhsOrders" class="tw.com.mitac.thp.action.FrontBhsCustomerCenterAction">
+			<result>/WEB-INF/outer/bhs/bhsOrders.jsp</result>
+		</action>
+		<action name="showBhsOrdersNewFeedback" method="bhsOrdersNewFeedback" class="tw.com.mitac.thp.action.FrontBhsCustomerCenterAction">
+			<result>/WEB-INF/outer/bhs/bhsOrders.jsp</result>
+		</action>
+		<!-- 線上客服 -->
+	</package>
+
+	<package name="bhs-enterName" namespace="/bhs" extends="Tenancy-allow">
+		<action name="enterName" class="tw.com.mitac.thp.action.FrontBhsEnterNameAction">
+			<result>/WEB-INF/outer/bhs/BhsPreEnterName.jsp</result>
+			<result name="error">/WEB-INF/outer/bhs/outerErrorPage.jsp</result>
+		</action>
+	</package>
+	<package name="bhs-enterName-login" namespace="/bhs" extends="User-allow2">
+		<action name="enterName_review" method="review" class="tw.com.mitac.thp.action.FrontBhsEnterNameAction">
+			<result>/WEB-INF/outer/bhs/BhsEnterName.jsp</result>
+			<result name="error">/WEB-INF/outer/bhs/outerErrorPage.jsp</result>
+		</action>
+
+		<action name="enterName_submit" method="submit" class="tw.com.mitac.thp.action.FrontBhsEnterNameAction">
+			<result>/WEB-INF/outer/bhs/BhsEnterName.jsp</result>
+			<result name="error">/WEB-INF/outer/bhs/outerErrorPage.jsp</result>
+		</action>
+	</package>
+</struts>

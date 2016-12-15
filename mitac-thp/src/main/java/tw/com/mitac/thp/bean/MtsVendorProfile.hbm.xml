@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/11/9 ?U?? 03:16:42 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="tw.com.mitac.thp.bean.MtsVendorProfile" table="mts_vendor_profile" catalog="thp" optimistic-lock="version">
+        <id name="sysid" type="string">
+            <column name="SYSID" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="creator" type="string">
+            <column name="CREATOR" not-null="true">
+                <comment>&#171;&#216;&#165;&#223;&#164;&#233;&#180;&#193;</comment>
+            </column>
+        </property>
+        <property name="creationDate" type="string">
+            <column name="CREATION_DATE" not-null="true">
+                <comment>&#171;&#216;&#165;&#223;&#170;&#204;</comment>
+            </column>
+        </property>
+        <property name="operator" type="string">
+            <column name="OPERATOR" not-null="true">
+                <comment>&#186;&#251;&#197;@&#164;H&#173;&#251;</comment>
+            </column>
+        </property>
+        <property name="operationDate" type="string">
+            <column name="OPERATION_DATE" not-null="true">
+                <comment>&#186;&#251;&#197;@&#164;&#233;&#180;&#193;</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="REMARK" length="65535">
+                <comment>&#179;&#198;&#181;&#249;</comment>
+            </column>
+        </property>
+        <property name="vendorSysid" type="string">
+            <column name="VENDOR_SYSID" length="45" not-null="true" unique="true">
+                <comment>&#168;&#209;&#192;&#179;&#176;&#211;&#168;t&#178;&#206;&#165;N&#184;&#185;</comment>
+            </column>
+        </property>
+        <property name="vendorName" type="string">
+            <column name="VENDOR_NAME">
+                <comment>
+                &#168;&#209;&#192;&#179;&#176;&#211;&#166;W&#186;&#217;&#161;]&#164;&#163;&#197;&#227;&#165;&#220;&#161;A&#174;&#216;&#172;[&#182;}&#181;&#161;&#165;&#206;&#161;^</comment>
+            </column>
+        </property>
+        <property name="vendorVideoUrl1" type="string">
+            <column name="VENDOR_VIDEO_URL_1">
+                <comment>&#168;&#209;&#192;&#179;&#176;&#211;&#188;v&#173;&#181;&#179;s&#181;&#178;1</comment>
+            </column>
+        </property>
+        <property name="vendorVideoUrl2" type="string">
+            <column name="VENDOR_VIDEO_URL_2" />
+        </property>
+        <property name="vendorProfileFull" type="string">
+            <column name="VENDOR_PROFILE_FULL" length="65535">
+                <comment>&#168;&#209;&#192;&#179;&#176;&#211;&#165;&#254;&#164;&#229;&#164;&#182;&#178;&#208;</comment>
+            </column>
+        </property>
+        <property name="vendorProfileSummary" type="string">
+            <column name="VENDOR_PROFILE_SUMMARY" />
+        </property>
+        <property name="vendorLiveShow" type="string">
+            <column name="VENDOR_LIVE_SHOW" length="60">
+                <comment>&#185;&#206;&#182;&#164;&#187;{&#195;&#210;</comment>
+            </column>
+        </property>
+        <property name="vendorImageSummary" type="string">
+            <column name="VENDOR_IMAGE_SUMMARY">
+                <comment>&#168;&#209;&#192;&#179;&#176;&#211;&#186;K&#173;n&#185;&#207;&#165;&#220;</comment>
+            </column>
+        </property>
+        
+         <set cascade="all-delete-orphan" lazy="false" name="detailSet" order-by="sysid" sort="unsorted" table="mts_ads_c">
+			<key column="SOURCE_SYSID" />
+			<!-- foreign-key="SYSID" on-delete="cascade" not-null="true" -->
+			<one-to-many class="tw.com.mitac.thp.bean.MtsAdsC" />
+		</set>
+        
+    </class>
+</hibernate-mapping>

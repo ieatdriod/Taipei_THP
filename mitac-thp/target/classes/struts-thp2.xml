@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="package1" namespace="/" extends="Tenancy-allow">
+		<!-- 抓取檔案 -->
+		<!-- <action name="getFile" class="tw.com.mitac.thp.action.DynaFileAction" /> -->
+		<!-- 動態數字 -->
+		<action name="dynanumber" class="tw.com.mitac.thp.action.DynaNumberAction">
+			<result type="stream">
+				<param name="contentType">image/jpeg</param>
+				<!-- 指定提供InputStream的filed name -->
+				<param name="inputName">imageStream</param>
+				<param name="bufferSize">1024</param>
+			</result>
+		</action>
+	</package>
+	<package name="cps2" namespace="/cps2" extends="Tenancy-allow">
+		<!-- 1 Round1 整站 整站首頁 -->
+
+		<action name="index" class="tw.com.mitac.thp.action.FrontAction">
+			<result>/WEB-INF/outer/cps2/index.jsp</result>
+		</action>
+
+		<!-- 31 Round4 整站 整站-洽詢廣告 -->
+		<action name="ad" class="tw.com.mitac.thp.action.FrontCpsAdApplyAction">
+			<result>/WEB-INF/outer/cps2/ad.jsp</result>
+		</action>
+		<action name="adSend" method="toSubmit" class="tw.com.mitac.thp.action.FrontCpsAdApplyAction">
+			<result>/WEB-INF/outer/cps2/ad.jsp</result>
+		</action>
+
+		<!-- 32 Round4 整站 整站-常見問答 -->
+		<action name="QandA" class="tw.com.mitac.thp.action.FrontQandAAction">
+			<result>/WEB-INF/outer/cps2/QandA.jsp</result>
+		</action>
+		<action name="getfaq" method="getCpsFaq" class="tw.com.mitac.thp.action.FrontQandAAction" />
+
+		<!-- 33 Round4 整站 整站-意見反應 -->
+		<action name="feedback" class="tw.com.mitac.thp.action.FrontFeedbackAction">
+			<result>/WEB-INF/outer/cps2/feedback.jsp</result>
+		</action>
+		<action name="feedback_send" method="toSubmit" class="tw.com.mitac.thp.action.FrontFeedbackAction" />
+
+		<!-- 34 Round3 整站 搜尋結果 -->
+		<action name="search" class="tw.com.mitac.thp.action.FrontAction">
+			<result>/WEB-INF/outer/cps2/search.jsp</result>
+		</action>
+
+		<!-- 44 Round5 整站 會員服務條款/隱私權宣告 -->
+		<action name="readme" class="tw.com.mitac.thp.action.FrontAction">
+			<result>/WEB-INF/outer/cps2/readme.jsp</result>
+		</action>
+
+		<action name="privacyPolicy" class="tw.com.mitac.thp.action.FrontAction">
+			<result>/WEB-INF/outer/cps2/privacyPolicy.jsp</result>
+		</action>
+		<action name="termsService" class="tw.com.mitac.thp.action.FrontAction">
+			<result>/WEB-INF/outer/cps2/termsService.jsp</result>
+		</action>
+
+		<action name="cpsMeeting" class="tw.com.mitac.thp.action.FrontCpsMeetingAction">
+			<result>/WEB-INF/outer/cpsMeeting.jsp</result>
+		</action>
+		<action name="meetingRoom" method="getMeetingRoom" class="tw.com.mitac.thp.action.FrontCpsMeetingAction">
+			<result>/WEB-INF/outer/cpsMeeting.jsp</result>
+		</action>
+		<action name="joinRoom" method="getJoinRoom" class="tw.com.mitac.thp.action.FrontCpsMeetingAction">
+			<result>/WEB-INF/outer/cpsMeeting.jsp</result>
+		</action>
+		<action name="memberName" method="getMemberName" class="tw.com.mitac.thp.action.FrontCpsMeetingAction">
+			<result>/WEB-INF/outer/cpsMeeting.jsp</result>
+		</action>
+
+		<action name="forgetPassword" class="tw.com.mitac.thp.action.FrontCpsForgetPasswordAction">
+			<result>/WEB-INF/outer/cps2/forgetPassword.jsp</result>
+		</action>
+		<action name="ajaxDoForgetPassword" method="ajaxDoForgetPassword" class="tw.com.mitac.thp.action.FrontCpsForgetPasswordAction" />
+
+		<action name="changePassword" class="tw.com.mitac.thp.action.FrontCpsForgetPasswordAction">
+			<result>/WEB-INF/outer/cps2/changePassword.jsp</result>
+		</action>
+		<action name="ajaxDoChangePassword" method="ajaxDoChangePassword" class="tw.com.mitac.thp.action.FrontCpsForgetPasswordAction" />
+
+	</package>
+
+	<package name="cps2-login" namespace="/cps2" extends="User-allow2">
+		<!-- 05 Round1 整站 會員專區首頁 -->
+		<action name="login" method="memberCenterPage" class="tw.com.mitac.thp.action.FrontMemberCenterAction">
+			<result>/WEB-INF/outer/cps2/login2.jsp</result>
+		</action>
+
+		<action name="account-password" method="initAccountInfo" class="tw.com.mitac.thp.action.FrontCpsSiteMemberAction">
+			<result>/WEB-INF/outer/cps2/account-password.jsp</result>
+		</action>
+		<action name="ajaxDoModifyPassword" method="ajaxDoModifyPassword" class="tw.com.mitac.thp.action.FrontCpsSiteMemberAction" />
+
+		<action name="ajaxDoComparisonPassword" method="ajaxDoComparisonPassword" class="tw.com.mitac.thp.action.FrontCpsSiteMemberAction" />
+
+		<action name="cpsNews" method="outerCpsNewsList" class="tw.com.mitac.thp.action.FrontCpsAction">
+			<result>/WEB-INF/outer/cps2/cpsNews.jsp</result>
+		</action>
+
+		<action name="member-center-top" class="tw.com.mitac.thp.action.FrontCpsAction">
+			<result>/WEB-INF/outer/cps2/memberCenterTop.jsp</result>
+		</action>
+		<action name="ajaxDoCpsNewsTop" method="ajaxDoCpsNewsTop" class="tw.com.mitac.thp.action.FrontCpsAction" />
+
+		<action name="cpsFavouriteList" method="initFavouriteData" class="tw.com.mitac.thp.action.FrontCpsFavouriteListAction">
+			<result>/WEB-INF/outer/cps2/cpsFavouriteList.jsp</result>
+		</action>
+		<action name="ajaxDoDeleteFavourite" method="ajaxDoDeleteFavourite" class="tw.com.mitac.thp.action.FrontCpsFavouriteListAction" />
+
+		<action name="collaborationList" method="initCollaborationData" class="tw.com.mitac.thp.action.FrontCollaborationListAction">
+			<result>/WEB-INF/outer/cps2/collaborationList.jsp</result>
+		</action>
+		<!-- 合作需求單內頁 -->
+		<action name="collaborationSub" method="collaborationSub" class="tw.com.mitac.thp.action.FrontCollaborationListAction">
+			<result>/WEB-INF/outer/cps2/collaborationSub.jsp</result>
+		</action>
+		<action name="ajaxDoAddContent" method="ajaxDoAddContent" class="tw.com.mitac.thp.action.FrontCollaborationListAction" />
+
+		<!-- <action name="cpsMeeting" class="tw.com.mitac.thp.action.FrontCpsMeetingAction"> <result>/WEB-INF/outer/cpsMeeting.jsp</result> 
+			</action> <action name="meetingList" class="tw.com.mitac.thp.action.FrontCpsMeetingAction"> <result>/WEB-INF/outer/cps2/meetingList.jsp</result> 
+			</action> -->
+
+		<action name="meetingList" method="doCpsMeetingData" class="tw.com.mitac.thp.action.FrontCpsMeetingAction">
+			<result>/WEB-INF/outer/cps2/meetingList.jsp</result>
+		</action>
+
+		<action name="mtsAppointmentList" method="initMtsAppointmentData" class="tw.com.mitac.thp.action.FrontMtsAppointmentListAction">
+			<result>/WEB-INF/outer/cps2/mtsAppointmentList.jsp</result>
+		</action>
+		<!-- 預約來台就醫單內頁 -->
+		<action name="mtsAppointmentSub" method="appointmentSub" class="tw.com.mitac.thp.action.FrontMtsAppointmentListAction">
+			<result>/WEB-INF/outer/cps2/mtsAppointmentSub.jsp</result>
+		</action>
+		<action name="ajaxDoAddMtsContent" method="ajaxDoAddMtsContent" class="tw.com.mitac.thp.action.FrontMtsAppointmentListAction" />
+
+
+	</package>
+
+	<!-- <package name="cps2-login" namespace="/cps2" extends="User-allow2"> -->
+	<!-- 05 Round1 整站 會員專區首頁 -->
+	<!-- <action name="login" method="memberCenterPage" class="tw.com.mitac.thp.action.FrontMemberCenterAction"> <result>/WEB-INF/outer/cps2/login.jsp</result> 
+		</action> </package> -->
+
+	<package name="epaper" namespace="/epaper" extends="Tenancy-allow">
+		<action name="view" class="tw.com.mitac.thp.action.EpaperAction">
+			<result>/WEB-INF/outer/epaper/view.jsp</result>
+		</action>
+	</package>
+	<package name="chat" namespace="/chat" extends="Tenancy-allow">
+		<action name="*" class="tw.com.mitac.thp.action.FrontAction">
+			<result>{1}.jsp</result>
+		</action>
+	</package>
+</struts>

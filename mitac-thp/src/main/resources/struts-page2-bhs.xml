@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="pages2-bhs" namespace="/pages2" extends="Tenancy-allow">
+		<action name="BIO_001" method="indexBhsPage" class="tw.com.mitac.thp.action.IndexBhsPage2Action">
+			<result>BIO_001.jsp</result>
+		</action>
+		<!-- ========== ========== ========== ========== ========== -->
+		<action name="BHS_FW_001" method="indexBhsPage" class="tw.com.mitac.thp.action.IndexBhsPage2Action">
+			<result>BHS_FW_001.jsp</result>
+		</action>
+
+		<action name="BHS_FW_002" method="recommandInit" class="tw.com.mitac.thp.action.FrontBhsRecommandAction">
+			<result>BHS_FW_002.jsp</result>
+		</action>
+
+		<action name="BHS_FW_004" method="outerItemSingle" class="tw.com.mitac.thp.action.FrontBhsProductsAction">
+			<result>BHS_FW_004.jsp</result>
+			<result name="error">/WEB-INF/outer/bhs/outerErrorPage.jsp</result>
+		</action>
+
+		<action name="BHS_FW_004_demoP" method="demo" class="tw.com.mitac.thp.action.ForProductsEdsIndexBhsPageAction">
+			<result>BHS_FW_004.jsp</result>
+			<result name="error">/WEB-INF/outer/bhs/outerErrorPage.jsp</result>
+		</action>
+
+		<action name="BHS_FW_004_demoT" method="demo" class="tw.com.mitac.thp.action.ForTechnologyEdsIndexBhsPageAction">
+			<result>BHS_FW_004.jsp</result>
+			<result name="error">/WEB-INF/outer/bhs/outerErrorPage.jsp</result>
+		</action>
+
+		<action name="ajaxBhsNews" method="newsBoxInfo" class="tw.com.mitac.thp.action.FrontBhsArticleAction" />
+		<action name="BHS_FW_011" method="outerItemSingle" class="tw.com.mitac.thp.action.FrontBhsArticleAction">
+			<result>BHS_FW_011.jsp</result>
+		</action>
+
+		<action name="BHS_FW_011_demo" method="viewItemSingle" class="tw.com.mitac.thp.action.FrontBhsArticleAction">
+			<result>BHS_FW_011.jsp</result>
+		</action>
+
+		<action name="bioMenuSearch" method="bioMenuSearch" class="tw.com.mitac.thp.action.FrontSearchAction">
+			<result>BIO_002.jsp</result>
+		</action>
+
+		<action name="BHS_FW_010" method="bhsExecute" class="tw.com.mitac.thp.action.FrontSearchAction">
+			<result>BHS_FW_010.jsp</result>
+		</action>
+
+		<action name="BHS_FW_010_1" method="outerMain" class="tw.com.mitac.thp.action.FrontBhsVendorProfileAction">
+			<result name="outerMain">BHS_FW_010_1.jsp</result>
+		</action>
+		<!-- <action name="showBhsVendorProfileMain" method="outerMain" class="tw.com.mitac.thp.action.FrontBhsVendorProfileAction"> 
+			<result name="outerMain">/WEB-INF/outer/bhs/BhsVendorProfileActionOuterMain.jsp</result> </action> -->
+
+		<action name="BHS_FW_003" method="outerItemSingle" class="tw.com.mitac.thp.action.FrontBhsVendorProfileAction_BHS_FW_003">
+			<result>BHS_FW_003.jsp</result>
+			<result name="error">/WEB-INF/outer/bhs/outerErrorPage.jsp</result>
+		</action>
+
+		<action name="BHS_FW_003_demo" method="demo" class="tw.com.mitac.thp.action.ForVendorProfileEdsIndexBhsVendorAction">
+			<result>BHS_FW_003.jsp</result>
+		</action>
+
+		<action name="BHS_FW_003_demoForOperate" method="demo" class="tw.com.mitac.thp.action.ForOperateEdsBhsVendorProfileAction">
+			<result>BHS_FW_003.jsp</result>
+		</action>
+
+		<action name="BHS_FW_012_demo" method="demo" class="tw.com.mitac.thp.action.FrontBhsHighlightAction">
+			<result>BHS_FW_012.jsp</result>
+		</action>
+
+		<action name="BHS_FW_012" method="indexBhsHighLightPage" class="tw.com.mitac.thp.action.FrontBhsHighlightAction">
+			<result>BHS_FW_012.jsp</result>
+		</action>
+	</package>
+	<!-- 合作需求 -->
+	<package name="pages2-bhs-login" namespace="/pages2" extends="User-allow2">
+		<action name="BhsCollaborationPage" method="collaborationPage" class="tw.com.mitac.thp.action.FrontBhsCollaborationAction">
+			<result>BHS_FW_009.jsp</result>
+			<result name="error">/WEB-INF/outer/bhs/outerErrorPage.jsp</result>
+		</action>
+
+		<action name="BhsCollaborationPreviewPage" method="previewWithValue" class="tw.com.mitac.thp.action.FrontBhsCollaborationAction">
+			<result>BHS_FW_009_CollaborationPreview.jsp </result>
+			<result name="error">/WEB-INF/outer/bhs/outerErrorPage.jsp</result>
+		</action>
+
+		<action name="BhsCollaborationSubmit" method="collaborationSubmit" class="tw.com.mitac.thp.action.FrontBhsCollaborationAction">
+			<result>BHS_FW_009_CollaborationPreview.jsp</result>
+			<result name="error">/WEB-INF/outer/bhs/outerErrorPage.jsp</result>
+		</action>
+
+		<!-- 預約視訊 -->
+		<action name="BhsCollaborationPage1" method="collaborationPage" class="tw.com.mitac.thp.action.FrontBhsCollaborationAction">
+			<result>BHS_FW_009_1.jsp</result>
+			<result name="error">/WEB-INF/outer/bhs/outerErrorPage.jsp</result>
+		</action>
+
+		<action name="BhsViewPreviewPage" method="previewWithValue" class="tw.com.mitac.thp.action.FrontBhsCollaborationAction">
+			<result>BHS_FW_009_ViewPreview.jsp </result>
+			<result name="error">/WEB-INF/outer/bhs/outerErrorPage.jsp</result>
+		</action>
+
+		<action name="BhsCollaborationSubmit1" method="collaborationSubmit" class="tw.com.mitac.thp.action.FrontBhsCollaborationAction">
+			<result>BHS_FW_009_ViewPreview.jsp</result>
+			<result name="error">/WEB-INF/outer/bhs/outerErrorPage.jsp</result>
+		</action>
+
+
+		<action name="BHS_FW_007_1" method="main_1" class="tw.com.mitac.thp.action.BhsOnlineRegistrationAction">
+			<result>BHS_FW_007_1.jsp</result>
+		</action>
+		<action name="BHS_FW_007_1_send" method="toSubmit_1" class="tw.com.mitac.thp.action.BhsOnlineRegistrationAction">
+			<result>BHS_FW_007_1.jsp</result>
+		</action>
+
+		<action name="BHS_FW_007_2" method="main_2" class="tw.com.mitac.thp.action.BhsOnlineRegistrationAction">
+			<result>BHS_FW_007_2.jsp</result>
+		</action>
+		<action name="BHS_FW_007_2_send" method="toSubmit_2" class="tw.com.mitac.thp.action.BhsOnlineRegistrationAction">
+			<result>BHS_FW_007_2.jsp</result>
+		</action>
+	</package>
+
+	<package name="pages2-edm" namespace="/pages2" extends="Tenancy-allow">
+		<action name="BHS_FW_005" method="exhibitionInit" class="tw.com.mitac.thp.action.FrontBhsExhibitionAction">
+			<result>BHS_FW_005.jsp</result>
+		</action>
+
+		<action name="BHS_FW_008" class="tw.com.mitac.thp.action.FrontBhsExhibitionAction">
+			<result>BHS_FW_008.jsp</result>
+		</action>
+		<action name="BHS_FW_006" class="tw.com.mitac.thp.action.FrontCpsExhibitionListAction">
+			<result>BHS_FW_006.jsp</result>
+		</action>
+	</package>
+
+	<package name="pages2-edm-login" namespace="/pages2" extends="User-allow2">
+		<action name="BHS_FW_007" method="main" class="tw.com.mitac.thp.action.BhsOnlineRegistrationAction">
+			<result>BHS_FW_007.jsp</result>
+		</action>
+		<action name="BHS_FW_007_send" method="toSubmit" class="tw.com.mitac.thp.action.BhsOnlineRegistrationAction">
+			<result>BHS_FW_007.jsp</result>
+		</action>
+	</package>
+
+	<!-- 線上展覽館 廠商 -->
+	<package name="exhibitionVendor" namespace="/exhibitionVendor" extends="Tenancy-allow">
+		<action name="view" method="outerVendorMain" class="tw.com.mitac.thp.action.FrontCpsExhibitionVendorAction">
+			<result>view.jsp</result>
+		</action>
+	</package>
+</struts>

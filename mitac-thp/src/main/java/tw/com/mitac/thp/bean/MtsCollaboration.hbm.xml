@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/11/22 ?????? 10:51:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="tw.com.mitac.thp.bean.MtsCollaboration" table="mts_collaboration" catalog="thp" optimistic-lock="version">
+        <id name="sysid" type="string">
+            <column name="SYSID" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="creator" type="string">
+            <column name="CREATOR" not-null="true">
+                <comment>&#229;&#187;&#186;&#231;&#171;&#139;&#232;&#128;&#133;</comment>
+            </column>
+        </property>
+        <property name="creationDate" type="string">
+            <column name="CREATION_DATE" not-null="true">
+                <comment>&#229;&#187;&#186;&#231;&#171;&#139;&#230;&#151;&#165;&#230;&#156;&#159;</comment>
+            </column>
+        </property>
+        <property name="operator" type="string">
+            <column name="OPERATOR" not-null="true">
+                <comment>&#231;&#182;&#173;&#232;&#173;&#183;&#228;&#186;&#186;&#229;&#147;&#161;</comment>
+            </column>
+        </property>
+        <property name="operationDate" type="string">
+            <column name="OPERATION_DATE" not-null="true">
+                <comment>&#231;&#182;&#173;&#232;&#173;&#183;&#230;&#151;&#165;&#230;&#156;&#159;</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="REMARK" length="65535">
+                <comment>&#229;&#130;&#153;&#232;&#168;&#187;</comment>
+            </column>
+        </property>
+        <property name="sourceId" type="string">
+            <column name="SOURCE_ID" not-null="true">
+                <comment>&#233;&#156;&#128;&#230;&#177;&#130;&#229;&#150;&#174;&#233;&#161;&#158;&#229;&#136;&#165;</comment>
+            </column>
+        </property>
+        <property name="collaborationStatus" type="string">
+            <column name="COLLABORATION_STATUS" length="20" not-null="true">
+                <comment>
+                &#229;&#144;&#136;&#228;&#189;&#156;&#229;&#150;&#174;&#231;&#139;&#128;&#230;&#133;&#139;:&#229;&#190;&#133;&#232;&#153;&#149;&#231;&#144;&#134;&#239;&#188;&#154;PENDING,&#232;&#153;&#149;&#231;&#144;&#134;&#228;&#184;&#173;&#239;&#188;&#154;PROCESS,&#230;&#142;&#165;&#229;&#143;&#151;&#239;&#188;&#154;ACCEPT,&#230;&#139;&#146;&#231;&#181;&#149;&#239;&#188;&#154;DENIAL,&#231;&#181;&#144;&#230;&#161;&#136;&#239;&#188;&#154;CLOSE</comment>
+            </column>
+        </property>
+        <property name="collaborationNo" type="string">
+            <column name="COLLABORATION_NO" length="45" not-null="true">
+                <comment>&#229;&#144;&#136;&#228;&#189;&#156;&#229;&#150;&#174;&#232;&#153;&#159;</comment>
+            </column>
+        </property>
+        <property name="collaborationName" type="string">
+            <column name="COLLABORATION_NAME" not-null="true">
+                <comment>&#229;&#167;&#147;&#229;&#144;&#141;</comment>
+            </column>
+        </property>
+        <property name="collaborationTitle" type="string">
+            <column name="COLLABORATION_TITLE">
+                <comment>&#232;&#129;&#183;&#231;&#168;&#177;</comment>
+            </column>
+        </property>
+        <property name="countryCode" type="string">
+            <column name="COUNTRY_CODE" length="10" />
+        </property>
+        <property name="collaborationPhone" type="string">
+            <column name="COLLABORATION_PHONE" not-null="true">
+                <comment>&#233;&#155;&#187;&#232;&#169;&#177;</comment>
+            </column>
+        </property>
+        <property name="countryCode2" type="string">
+            <column name="COUNTRY_CODE2" length="10" />
+        </property>
+        <property name="reservePhone" type="string">
+            <column name="RESERVE_PHONE" />
+        </property>
+        <property name="collaborationMail" type="string">
+            <column name="COLLABORATION_MAIL" not-null="true">
+                <comment>&#233;&#155;&#187;&#229;&#173;&#144;&#228;&#191;&#161;&#231;&#174;&#177;</comment>
+            </column>
+        </property>
+        <property name="collaborationCompany" type="string">
+            <column name="COLLABORATION_COMPANY" not-null="true">
+                <comment>&#229;&#133;&#172;&#229;&#143;&#184;/&#230;&#169;&#159;&#230;&#167;&#139;</comment>
+            </column>
+        </property>
+        <property name="collaborationUnit" type="string">
+            <column name="COLLABORATION_UNIT">
+                <comment>&#229;&#150;&#174;&#228;&#189;&#141;/&#233;&#131;&#168;&#233;&#150;&#128;</comment>
+            </column>
+        </property>
+        <property name="collaborationCountry" type="string">
+            <column name="COLLABORATION_COUNTRY" not-null="true">
+                <comment>&#229;&#156;&#139;&#229;&#136;&#165;</comment>
+            </column>
+        </property>
+        <property name="collaborationCompanyCountry" type="string">
+            <column name="COLLABORATION_COMPANY_COUNTRY">
+                <comment>&#229;&#133;&#172;&#229;&#143;&#184;&#229;&#156;&#139;&#229;&#136;&#165;</comment>
+            </column>
+        </property>
+        <property name="collaborationCompanyAreaCode" type="string">
+            <column name="COLLABORATION_COMPANY_AREA_CODE">
+                <comment>&#229;&#133;&#172;&#229;&#143;&#184;&#229;&#156;&#139;&#229;&#174;&#182;&#229;&#141;&#128;&#231;&#162;&#188;</comment>
+            </column>
+        </property>
+        <property name="collaborationAddr" type="string">
+            <column name="COLLABORATION_ADDR">
+                <comment>&#229;&#133;&#172;&#229;&#143;&#184;&#229;&#156;&#176;&#229;&#157;&#128;</comment>
+            </column>
+        </property>
+        <property name="collaborationWebsite" type="string">
+            <column name="COLLABORATION_WEBSITE">
+                <comment>&#231;&#182;&#178;&#229;&#157;&#128;</comment>
+            </column>
+        </property>
+        <property name="collaborationBus" type="string">
+            <column name="COLLABORATION_BUS">
+                <comment>&#228;&#184;&#187;&#232;&#166;&#129;&#231;&#135;&#159;&#230;&#165;&#173;&#233;&#160;&#133;&#231;&#155;&#174;</comment>
+            </column>
+        </property>
+        <property name="collaborationProducts" type="string">
+            <column name="COLLABORATION_PRODUCTS">
+                <comment>&#229;&#144;&#136;&#228;&#189;&#156;&#230;&#138;&#128;&#232;&#161;&#147;/&#231;&#148;&#162;&#229;&#147;&#129;</comment>
+            </column>
+        </property>
+        <property name="collaborationDescribe" type="string">
+            <column name="COLLABORATION_DESCRIBE" />
+        </property>
+        <property name="siteMemberSysid" type="string">
+            <column name="SITE_MEMBER_SYSID" length="45" not-null="true" />
+        </property>
+        <property name="collaborationVideoOneLocal" type="timestamp">
+            <column name="COLLABORATION_VIDEO_ONE_LOCAL" length="19">
+                <comment>&#232;&#166;&#150;&#232;&#168;&#138;&#230;&#151;&#165;&#230;&#156;&#159;&#228;&#184;&#128;(local)</comment>
+            </column>
+        </property>
+        <property name="collaborationVideoOneTaiwan" type="timestamp">
+            <column name="COLLABORATION_VIDEO_ONE_TAIWAN" length="19">
+                <comment>&#232;&#166;&#150;&#232;&#168;&#138;&#230;&#151;&#165;&#230;&#156;&#159;&#228;&#184;&#128;(taiwan)</comment>
+            </column>
+        </property>
+        <property name="collaborationVideoTwoLocal" type="timestamp">
+            <column name="COLLABORATION_VIDEO_TWO_LOCAL" length="19">
+                <comment>&#232;&#166;&#150;&#232;&#168;&#138;&#230;&#151;&#165;&#230;&#156;&#159;&#228;&#186;&#140;(local)</comment>
+            </column>
+        </property>
+        <property name="collaborationVideoTwoTaiwan" type="timestamp">
+            <column name="COLLABORATION_VIDEO_TWO_TAIWAN" length="19">
+                <comment>&#232;&#166;&#150;&#232;&#168;&#138;&#230;&#151;&#165;&#230;&#156;&#159;&#228;&#186;&#140;(taiwan)</comment>
+            </column>
+        </property>
+        <property name="isRead" type="java.lang.Boolean">
+            <column name="IS_READ" not-null="true">
+                <comment>&#229;&#183;&#178;&#232;&#174;&#128;(1)&#230;&#156;&#170;&#232;&#174;&#128;(0)</comment>
+            </column>
+        </property>
+        <set cascade="all-delete-orphan" lazy="false" name="detailSet"
+			order-by="sysid" sort="unsorted" table="mts_collaboration_feedback">
+			<key column="COLLABORATION_SYSID" />
+			<!-- foreign-key="SYSID" on-delete="cascade" not-null="true" -->
+			<one-to-many class="tw.com.mitac.thp.bean.MtsCollaborationFeedback" />
+		</set>
+    </class>
+</hibernate-mapping>

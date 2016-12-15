@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/11/10 ?U?? 03:42:03 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="tw.com.mitac.thp.bean.CpsEpaper" table="cps_epaper" catalog="thp" optimistic-lock="version">
+        <id name="sysid" type="string">
+            <column name="SYSID" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="creator" type="string">
+            <column name="CREATOR" not-null="true">
+                <comment>&#171;&#216;&#165;&#223;&#170;&#204;</comment>
+            </column>
+        </property>
+        <property name="creationDate" type="string">
+            <column name="CREATION_DATE" not-null="true">
+                <comment>&#171;&#216;&#165;&#223;&#164;&#233;&#180;&#193;</comment>
+            </column>
+        </property>
+        <property name="operator" type="string">
+            <column name="OPERATOR" not-null="true">
+                <comment>&#186;&#251;&#197;@&#164;H&#173;&#251;</comment>
+            </column>
+        </property>
+        <property name="operationDate" type="string">
+            <column name="OPERATION_DATE" not-null="true">
+                <comment>&#186;&#251;&#197;@&#164;&#233;&#180;&#193;</comment>
+            </column>
+        </property>
+        <property name="selectObjects" type="string">
+            <column name="SELECT_OBJECTS" not-null="true">
+                <comment>&#191;&#239;&#190;&#220;&#185;&#239;&#182;H(&#175;S&#169;w&#185;&#239;&#182;HE;&#165;&#254;&#175;&#184;&#183;|&#173;&#251;A)</comment>
+            </column>
+        </property>
+        <property name="exceptionObjects" type="string">
+            <column name="EXCEPTION_OBJECTS">
+                <comment>
+                &#175;S&#169;w&#181;o&#176;e&#185;&#239;&#182;H&#184;&#234;&#176;T(M&#194;&#229;&#192;&#248;&#192;],B&#165;&#205;&#167;&#222;&#192;],D&#166;&#219;&#173;q-&#197;&#170;&#168;&#250;&#167;&#192;&#192;&#201;)</comment>
+            </column>
+        </property>
+        <property name="publishDate" type="timestamp">
+            <column name="PUBLISH_DATE" length="19" not-null="true">
+                <comment>&#185;w&#173;p&#168;t&#178;&#206;&#181;o&#176;e&#174;&#201;&#182;&#161;</comment>
+            </column>
+        </property>
+        <property name="publishDateActual" type="timestamp">
+            <column name="PUBLISH_DATE_ACTUAL" length="19">
+                <comment>&#185;&#234;&#187;&#218;&#168;t&#178;&#206;&#181;o&#176;e&#174;&#201;&#182;&#161;
+                (&#165;u&#173;n&#166;&#179;&#176;&#245;&#166;&#230;&#177;H&#176;e&#181;{&#166;&#161;&#180;N&#183;|&#188;g&#164;J&#174;&#201;&#182;&#161;-&#164;&#163;&#189;&#215;&#166;&#168;&#165;\&#165;&#162;&#177;&#209;-DateTime)</comment>
+            </column>
+        </property>
+        <property name="sendStatus" type="string">
+            <column name="SEND_STATUS">
+                <comment>
+                &#181;o&#176;e&#170;&#172;&#186;A(Y&#164;w&#181;o&#176;e,N&#165;&#188;&#181;o&#176;e,L&#173;&#171;&#176;e&#166;&#238;&#166;C&#164;&#164;{&#173;&#171;&#183;s&#177;&#198;&#182;&#164;&#183;N&#171;&#228;})</comment>
+            </column>
+        </property>
+        <property name="title" type="string">
+            <column name="TITLE" not-null="true">
+                <comment>&#165;D&#166;&#174;</comment>
+            </column>
+        </property>
+        <property name="content" type="string">
+            <column name="CONTENT">
+                <comment>&#164;&#186;&#174;e(HTML&#170;&#237;&#174;&#230;)</comment>
+            </column>
+        </property>
+        
+        
+        <set cascade="all-delete-orphan" lazy="false" name="detailSet" order-by="sysid" sort="unsorted" table="cps_epaper_detail">
+			<key column="PARENT_SYSID" />
+			<!-- foreign-key="SYSID" on-delete="cascade" not-null="true" -->
+			<one-to-many class="tw.com.mitac.thp.bean.CpsEpaperDetail" />
+		</set>
+    </class>
+</hibernate-mapping>

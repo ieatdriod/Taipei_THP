@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/9/26 ?U?? 04:30:58 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="tw.com.mitac.thp.bean.CpsHottopic" table="cps_hottopic" catalog="thp" optimistic-lock="version">
+        <id name="sysid" type="string">
+            <column name="SYSID" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="creator" type="string">
+            <column name="CREATOR" not-null="true">
+                <comment>&#171;&#216;&#165;&#223;&#170;&#204;</comment>
+            </column>
+        </property>
+        <property name="creationDate" type="string">
+            <column name="CREATION_DATE" not-null="true">
+                <comment>&#171;&#216;&#165;&#223;&#164;&#233;&#180;&#193;</comment>
+            </column>
+        </property>
+        <property name="operator" type="string">
+            <column name="OPERATOR" not-null="true">
+                <comment>&#186;&#251;&#197;@&#164;H&#173;&#251;</comment>
+            </column>
+        </property>
+        <property name="operationDate" type="string">
+            <column name="OPERATION_DATE" not-null="true">
+                <comment>&#186;&#251;&#197;@&#164;&#233;&#180;&#193;</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="REMARK" length="65535">
+                <comment>&#179;&#198;&#181;&#249;</comment>
+            </column>
+        </property>
+        <property name="dataOrder" type="java.lang.Integer">
+            <column name="DATA_ORDER" not-null="true">
+                <comment>&#177;&#198;&#167;&#199;</comment>
+            </column>
+        </property>
+        <property name="isEnabled" type="java.lang.Boolean">
+            <column name="IS_ENABLED" not-null="true">
+                <comment>&#177;&#210;&#165;&#206;/&#176;&#177;&#165;&#206;</comment>
+            </column>
+        </property>
+        <property name="hottopicName" type="string">
+            <column name="HOTTOPIC_NAME" not-null="true">
+                <comment>HotTopic&#165;D&#188;&#208;&#166;W&#186;&#217;</comment>
+            </column>
+        </property>
+        <property name="hottopicName2" type="string">
+            <column name="HOTTOPIC_NAME2" not-null="true">
+                <comment>HotTopic&#176;&#198;&#188;&#208;&#166;W&#186;&#217;</comment>
+            </column>
+        </property>
+        <property name="hottopicImg1F" type="string">
+            <column name="HOTTOPIC_IMG1_F">
+                <comment>&#185;&#207;&#165;&#220;&#164;@_&#165;&#191;&#173;&#177;</comment>
+            </column>
+        </property>
+        <property name="hottopicImg1B" type="string">
+            <column name="HOTTOPIC_IMG1_B">
+                <comment>&#185;&#207;&#165;&#220;&#164;@_&#164;&#207;&#173;&#177;</comment>
+            </column>
+        </property>
+        <property name="hottopicImg2F" type="string">
+            <column name="HOTTOPIC_IMG2_F">
+                <comment>&#185;&#207;&#165;&#220;&#164;G_&#165;&#191;&#173;&#177;</comment>
+            </column>
+        </property>
+        <property name="hottopicImg2B" type="string">
+            <column name="HOTTOPIC_IMG2_B">
+                <comment>&#185;&#207;&#165;&#220;&#164;G_&#164;&#207;&#173;&#177;</comment>
+            </column>
+        </property>
+        <property name="hottopicImg3F" type="string">
+            <column name="HOTTOPIC_IMG3_F">
+                <comment>&#185;&#207;&#165;&#220;&#164;T_&#165;&#191;&#173;&#177;</comment>
+            </column>
+        </property>
+        <property name="hottopicImg3B" type="string">
+            <column name="HOTTOPIC_IMG3_B">
+                <comment>&#185;&#207;&#165;&#220;&#164;T_&#164;&#207;&#173;&#177;</comment>
+            </column>
+        </property>
+        <property name="hottopicImg4F" type="string">
+            <column name="HOTTOPIC_IMG4_F">
+                <comment>&#185;&#207;&#165;&#220;&#165;|_&#165;&#191;&#173;&#177;</comment>
+            </column>
+        </property>
+        <property name="hottopicImg4B" type="string">
+            <column name="HOTTOPIC_IMG4_B">
+                <comment>&#185;&#207;&#165;&#220;&#165;|_&#164;&#207;&#173;&#177;</comment>
+            </column>
+        </property>
+        <property name="hottopicVideoTitle" type="string">
+            <column name="HOTTOPIC_VIDEO_TITLE">
+                <comment>&#188;v&#164;&#249;&#179;s&#181;&#178;&#188;&#208;&#195;D</comment>
+            </column>
+        </property>
+        <property name="hottopicVideoSummary" type="string">
+            <column name="HOTTOPIC_VIDEO_SUMMARY" length="500">
+                <comment>&#188;v&#164;&#249;&#179;s&#181;&#178;&#186;K&#173;n</comment>
+            </column>
+        </property>
+        <property name="hottopicVideoUrl" type="string">
+            <column name="HOTTOPIC_VIDEO_URL">
+                <comment>&#188;v&#164;&#249;&#179;s&#181;&#178;</comment>
+            </column>
+        </property>
+        
+        
+        <set cascade="all-delete-orphan" lazy="false" name="detailSet" order-by="sysid" sort="unsorted" table="cps_hottopic_ads">
+			<key column="HOTTOPIC_SYSID" />
+			<!-- foreign-key="SYSID" on-delete="cascade" not-null="true" -->
+			<one-to-many class="tw.com.mitac.thp.bean.CpsHottopicAds" />
+		</set>
+		
+		
+    </class>
+</hibernate-mapping>

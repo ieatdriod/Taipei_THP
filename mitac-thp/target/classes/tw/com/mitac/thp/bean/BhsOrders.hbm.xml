@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/3/25 ?????? 03:00:49 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="tw.com.mitac.thp.bean.BhsOrders" table="bhs_orders" catalog="thp" optimistic-lock="version">
+        <id name="sysid" type="string">
+            <column name="SYSID" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="creator" type="string">
+            <column name="CREATOR" not-null="true">
+                <comment>&#229;&#187;&#186;&#231;&#171;&#139;&#230;&#151;&#165;&#230;&#156;&#159;</comment>
+            </column>
+        </property>
+        <property name="creationDate" type="string">
+            <column name="CREATION_DATE" not-null="true">
+                <comment>&#229;&#187;&#186;&#231;&#171;&#139;&#232;&#128;&#133;</comment>
+            </column>
+        </property>
+        <property name="operator" type="string">
+            <column name="OPERATOR" not-null="true">
+                <comment>&#231;&#182;&#173;&#232;&#173;&#183;&#228;&#186;&#186;&#229;&#147;&#161;</comment>
+            </column>
+        </property>
+        <property name="operationDate" type="string">
+            <column name="OPERATION_DATE" not-null="true">
+                <comment>&#231;&#182;&#173;&#232;&#173;&#183;&#230;&#151;&#165;&#230;&#156;&#159;</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="REMARK" length="65535">
+                <comment>&#229;&#130;&#153;&#232;&#168;&#187;</comment>
+            </column>
+        </property>
+        <property name="billno" type="string">
+            <column name="ODNO" length="45" not-null="true">
+                <comment>&#232;&#168;&#130;&#229;&#150;&#174;&#231;&#183;&#168;&#232;&#153;&#159;</comment>
+            </column>
+        </property>
+        <property name="issueDate" type="date">
+            <column name="ISSUE_DATE" length="10">
+                <comment>
+                &#233;&#150;&#139;&#231;&#171;&#139;&#230;&#151;&#165;&#230;&#156;&#159;(&#232;&#168;&#130;&#229;&#150;&#174;&#230;&#151;&#165;&#230;&#156;&#159;)</comment>
+            </column>
+        </property>
+        <property name="sourceType" type="string">
+            <column name="SOURCE_TYPE">
+                <comment>&#228;&#190;&#134;&#230;&#186;&#144;&#233;&#161;&#158;&#229;&#136;&#165;</comment>
+            </column>
+        </property>
+        <property name="vendorSysid" type="string">
+            <column name="VENDOR_SYSID" length="45">
+                <comment>&#228;&#190;&#155;&#230;&#135;&#137;&#229;&#149;&#134;&#231;&#179;&#187;&#231;&#181;&#177;&#228;&#187;&#163;&#232;&#153;&#159;</comment>
+            </column>
+        </property>
+        <property name="orderType" type="string">
+            <column name="ORDER_TYPE" length="45">
+                <comment>&#232;&#168;&#130;&#229;&#150;&#174;/&#233;&#156;&#128;&#230;&#177;&#130;&#229;&#150;&#174;&#233;&#161;&#158;&#229;&#136;&#165;</comment>
+            </column>
+        </property>
+        <property name="memberSysid" type="string">
+            <column name="MEMBER_SYSID" length="45">
+                <comment>&#230;&#136;&#144;&#229;&#147;&#161;&#231;&#179;&#187;&#231;&#181;&#177;&#228;&#187;&#163;&#232;&#153;&#159;</comment>
+            </column>
+        </property>
+        <property name="memberPositionSysid" type="string">
+            <column name="MEMBER_POSITION_SYSID" length="45">
+                <comment>&#230;&#136;&#144;&#229;&#147;&#161;&#232;&#129;&#183;&#231;&#168;&#177;&#231;&#179;&#187;&#231;&#181;&#177;&#228;&#187;&#163;&#232;&#153;&#159;</comment>
+            </column>
+        </property>
+        <property name="memberVendorSysid" type="string">
+            <column name="MEMBER_VENDOR_SYSID" length="45">
+                <comment>
+                &#230;&#136;&#144;&#229;&#147;&#161;&#230;&#137;&#128;&#229;&#177;&#172;&#229;&#187;&#160;&#229;&#149;&#134;&#231;&#179;&#187;&#231;&#181;&#177;&#228;&#187;&#163;&#232;&#153;&#159;</comment>
+            </column>
+        </property>
+        <property name="duns" type="string">
+            <column name="DUNS" length="45">
+                <comment>&#233;&#132;&#167;&#231;&#153;&#189;&#230;&#176;&#143;&#231;&#162;&#188;</comment>
+            </column>
+        </property>
+        <property name="businessType" type="string">
+            <column name="BUSINESS_TYPE" length="45">
+                <comment>&#231;&#135;&#159;&#230;&#165;&#173;&#233;&#161;&#158;&#229;&#136;&#165;</comment>
+            </column>
+        </property>
+        <property name="billStatus" type="string">
+            <column name="ORDERS_STATUS" length="10">
+                <comment>&#232;&#168;&#130;&#229;&#150;&#174;/&#233;&#156;&#128;&#230;&#177;&#130;&#229;&#150;&#174;&#231;&#139;&#128;&#230;&#133;&#139;
+                &#228;&#187;&#152;&#230;&#172;&#190;&#230;&#131;&#133;&#230;&#179;&#129;</comment>
+            </column>
+        </property>
+        <property name="ordersItem" type="string">
+            <column name="ORDERS_ITEM" length="65535">
+                <comment>&#228;&#184;&#187;&#232;&#166;&#129;&#231;&#148;&#162;&#229;&#147;&#129;</comment>
+            </column>
+        </property>
+        <property name="ordersDetail" type="string">
+            <column name="ORDERS_DETAIL" length="65535">
+                <comment>
+                &#230;&#156;&#172;&#230;&#150;&#135;(&#232;&#179;&#188;&#232;&#178;&#183;&#229;&#139;&#149;&#228;&#189;&#156;&#232;&#161;&#168;&#229;&#150;&#174;/&#233;&#156;&#128;&#230;&#177;&#130;&#229;&#150;&#174;&#229;&#133;&#167;&#229;&#174;&#185;)</comment>
+            </column>
+        </property>
+        
+        <set cascade="all-delete-orphan" lazy="false" name="detailSet" order-by="sysid" sort="unsorted" table="bhs_orders_feedback">
+			<key column="ORDERS_SYSID" /><!-- foreign-key="SYSID" on-delete="cascade" not-null="true" -->
+			<one-to-many class="tw.com.mitac.thp.bean.BhsOrdersFeedback" />
+		</set>
+    </class>
+</hibernate-mapping>

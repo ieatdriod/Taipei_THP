@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="mitac-thp">
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="mitac-tool-2.5.5.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/mitac-tool/mitac-tool">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mitac-miaa-0.4.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/mitac-miaa/mitac-miaa">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/" handle="module:/overlay/var/M2_REPO/mitac/mitac-thp-hps/0.0.1-SNAPSHOT/mitac-thp-hps-0.0.1-SNAPSHOT.war?unpackFolder=target/m2e-wtp/overlays&amp;includes=**/**&amp;excludes=WEB-INF/lib/*;WEB-INF/web.xml">
+            <dependency-type>consumes</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/" handle="module:/overlay/slf/?includes=**/**&amp;excludes=META-INF/MANIFEST.MF">
+            <dependency-type>consumes</dependency-type>
+        </dependent-module>
+        <property name="java-output-path" value="/mitac-thp/target/classes"/>
+        <property name="context-root" value="mitac-thp"/>
+    </wb-module>
+</project-modules>

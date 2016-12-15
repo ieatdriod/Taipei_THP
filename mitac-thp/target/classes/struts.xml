@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!--<constant name="struts.custom.i18n.resources" value="globalMessages,globalFields,menu,billStatus,customMessages,menuBHS,menuHPS,menuMTS" 
+		/> -->
+	<constant name="struts.custom.i18n.resources"
+		value="globalMessages-temp,globalFields-temp,menu-temp,billStatus-temp,customMessages,menuBHS-temp,menuHPS,menuMTS-temp" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<!-- do:basic action:basic(for AA) list:for display tag -->
+	<constant name="struts.action.extension" value=",,action" />
+	<constant name="struts.ui.theme" value="css_xhtml" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<!-- develope Mode -->
+	<constant name="struts.devMode" value="false" />
+	<!-- create Action by spring -->
+	<!-- <constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory" /> -->
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.objectFactory.spring.autoWire" value="typeName" />
+	<!-- <constant name="struts.objectFactory.spring.autoWire" value="type" /> -->
+	<!-- <constant name="struts.objectFactory.spring.useClassCache" value="true" /> <constant name="struts.objectFactory.spring.autoWire.alwaysRespect" 
+		value="true" /> -->
+	<constant name="struts.multipart.maxSize" value="1000000000" /><!-- 上傳檔案大小 -->
+	<!-- chain can save message errors -->
+	<constant name="struts.xwork.chaining.copyErrors" value="true" />
+	<constant name="struts.xwork.chaining.copyFieldErrors" value="true" />
+	<constant name="struts.xwork.chaining.copyMessages" value="true" />
+
+	<constant name="struts.action.excludePattern" value="/struts/webconsole.*" />
+
+	<package name="home-default" namespace="/" extends="mitac-default">
+		<interceptors>
+			<interceptor-stack name="HomeStack">
+				<interceptor-ref name="defaultStack" />
+
+				<interceptor-ref name="params">
+					<!-- 安全性設置 -->
+					<param name="excludeParams">dojo\..*, .*\\u0023.*</param>
+				</interceptor-ref>
+
+				<!-- 設定cookies -->
+				<interceptor-ref name="cookieProvider" />
+
+				<!-- 取得cookies -->
+				<interceptor-ref name="cookie">
+					<param name="cookiesName">language,siteLanguage,url,img,url2,img2</param>
+					<!-- <param name="cookiesValue">*</param> -->
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="HomeStack" />
+
+		<global-results>
+			<result name="input">/index.jsp</result>
+			<result name="TENANCY_REGISTER" type="redirect">/tenancyRegister</result>
+			<!-- <result name="USER_LOGIN_PAGE" type="redirect">/userLoginPage</result> -->
+			<result name="USER_LOGIN_PAGE" type="redirect">/pages2/AdminmanagerPage</result>
+			<result name="MEMBER_LOGIN_PAGE" type="redirect">/pages2/CPS_FW_002</result>
+		</global-results>
+
+		<action name="changeLocale" class="tw.com.mitac.thp.util.ChangeLocaleAction" />
+		<action name="changeSiteLocale" method="changeSiteLocale" class="tw.com.mitac.thp.util.ChangeLocaleAction" />
+	</package>
+
+	<package name="Tenancy-allow" namespace="/" extends="home-default">
+		<interceptors>
+			<interceptor name="TenancyInterceptor" class="tw.com.mitac.thp.login.TenancyInterceptor" />
+
+			<interceptor-stack name="TenancyRegisterStack">
+				<interceptor-ref name="HomeStack" />
+				<interceptor-ref name="TenancyInterceptor" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="TenancyRegisterStack" />
+	</package>
+
+	<package name="tenancyRegister" namespace="/" extends="home-default">
+		<action name="tenancyRegister" method="tenancyRegister" class="tw.com.mitac.thp.login.TenancyRegisterAction">
+			<result>/WEB-INF/home/tenancyRegister.jsp</result>
+		</action>
+
+		<action name="tenancyRegisterSubmit" method="tenancyRegisterSubmit" class="tw.com.mitac.thp.login.TenancyRegisterAction" />
+	</package>
+
+	<package name="tenancy-info" namespace="/" extends="Tenancy-allow">
+		<action name="viewTenancy" class="tw.com.mitac.thp.login.TenancyAction">
+			<result>/WEB-INF/home/viewTenancy.jsp</result>
+		</action>
+	</package>
+
+	<package name="User-allow" namespace="/" extends="Tenancy-allow">
+		<interceptors>
+			<interceptor name="UserLoginInterceptor" class="tw.com.mitac.thp.login.UserLoginInterceptor" />
+
+			<interceptor-stack name="UserAllowStack">
+				<interceptor-ref name="TenancyRegisterStack" />
+				<interceptor-ref name="UserLoginInterceptor" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="UserAllowStack" />
+	</package>
+
+	<package name="User-login" namespace="" extends="Tenancy-allow">
+		<action name="userLoginPage" method="userLoginPage" class="tw.com.mitac.thp.login.UserLoginAction">
+			<result>userLoginPage.jsp</result>
+		</action>
+		<action name="userLogin" method="userLogin" class="tw.com.mitac.thp.login.UserLoginAction" />
+		<action name="userLogout" method="userLogout" class="tw.com.mitac.thp.login.UserLoginAction" />
+	</package>
+	<package name="User-info" namespace="" extends="User-allow">
+		<global-results>
+			<result name="modifyPassword">modifyPassword.jsp</result>
+		</global-results>
+
+		<action name="initModifyPwd" method="initModifyPwd" class="tw.com.mitac.thp.login.ModifyPasswordAction" />
+		<action name="modifyPwd" class="tw.com.mitac.thp.login.ModifyPasswordAction" />
+
+		<action name="userWelcome" class="tw.com.mitac.thp.login.IsLoginAction">
+			<result>index.jsp</result>
+		</action>
+
+		<action name="testMode" method="testMode" class="tw.com.mitac.thp.login.IsLoginAction">
+			<result type="redirect">userWelcome</result>
+		</action>
+
+		<!-- <action name="*_*_*_jsp" class="tw.com.mitac.erp.action.{1}"> <result>/{2}/{3}.jsp</result> </action> -->
+	</package>
+
+	<package name="sys" namespace="/sys" extends="User-allow">
+		<action name="sysColumnConfigConsole" class="tw.com.mitac.thp.sys.SysColumnConfigConsoleAction">
+			<result>/WEB-INF/sys/sysColumnConfigConsole.jsp</result>
+		</action>
+		<action name="delSccByTbNm" method="delSccByTbNm" class="tw.com.mitac.thp.sys.SysColumnConfigConsoleAction" />
+	</package>
+
+	<!-- <package name="home" namespace="/home" extends="User-allow"> <action name="showNews" method="show" class="tw.com.mitac.thp.action.CoreNewsAction"> 
+		<result>/WEB-INF/home/information.jsp</result> </action> <action name="viewArticle" method="viewArticle" class="tw.com.mitac.thp.action.CoreNewsAction"> 
+		<result>/WEB-INF/home/news.jsp</result> </action> </package> -->
+	<package name="crud" namespace="/crud" extends="User-allow">
+		<action name="*Action" method="main" class="tw.com.mitac.thp.action.{1}Action">
+			<!-- for redirect redirectAction RETRIEVE : get actionMessage and actionError from session to put in redirect Action -->
+			<interceptor-ref name="store">
+				<param name="operationMode">RETRIEVE</param>
+			</interceptor-ref>
+			<interceptor-ref name="UserAllowStack" />
+			<result name="main">/WEB-INF/crud/{1}ActionMain.jsp</result>
+		</action>
+		<action name="*Action_*" method="{2}" class="tw.com.mitac.thp.action.{1}Action"> <!-- for redirect redirectAction RETRIEVE : get actionMessage and actionError from session to put in redirect Action -->
+			<interceptor-ref name="store">
+				<param name="operationMode">RETRIEVE</param>
+			</interceptor-ref>
+			<interceptor-ref name="UserAllowStack" />
+			<result name="toMain" type="redirect">{1}Action</result>
+			<result name="main">/WEB-INF/crud/{1}ActionMain.jsp</result>
+			<result name="edit">/WEB-INF/crud/{1}ActionEdit.jsp</result>
+			<result name="editSuccess">/WEB-INF/crud/{1}ActionEdit.jsp</result>
+			<result name="editError">/WEB-INF/crud/{1}ActionEdit.jsp</result>
+		</action>
+	</package>
+	<package name="dialog" namespace="/dialog" extends="User-allow">
+		<action name="*Action_*" method="{2}" class="tw.com.mitac.thp.action.{1}Action">
+			<result name="toMain" type="redirect">{1}Action_main</result>
+			<result name="main">/WEB-INF/crud/{1}ActionMain.jsp</result>
+		</action>
+	</package>
+	<package name="multidialog" namespace="/multidialog" extends="User-allow">
+		<action name="*Action_*" method="{2}" class="tw.com.mitac.thp.action.{1}Action">
+			<result name="toMain" type="redirect">{1}Action_main</result>
+			<result name="main">/WEB-INF/crud/{1}ActionMain.jsp</result>
+		</action>
+	</package>
+	<!-- <package name="alter" namespace="/alter" extends="User-allow"> <action name="*_*" method="{2}" class="tw.com.mitac.erp.action.{1}"> 
+		<result name="list">/crud/{1}List.jsp</result> <result name="find" type="redirect">{1}_list.list</result> </action> </package> 
+		<package name="update" namespace="/update" extends="User-allow"> <action name="*_*" method="{2}" class="tw.com.mitac.erp.action.{1}"> 
+		<result name="init" type="redirect">{1}_main.do</result> <result name="main">/crud/{1}Main.jsp</result> <result name="list">/crud/{1}List.jsp</result> 
+		<result name="find" type="redirect">{1}_list.list</result> <result name="edit">/crud/{1}Edit.jsp</result> <result name="editSuccess">/crud/{1}Edit.jsp</result> 
+		<result name="editError">/crud/{1}Edit.jsp</result> </action> </package> -->
+	<package name="ajax" namespace="/ajax" extends="User-allow">
+		<action name="get" method="get" class="tw.com.mitac.thp.util.AjaxAction" />
+		<action name="queryTableCount" method="queryTableCount" class="tw.com.mitac.thp.util.AjaxAction" />
+		<action name="queryTable" method="queryTable" class="tw.com.mitac.thp.util.AjaxAction" />
+		<action name="findProperty" method="findProperty" class="tw.com.mitac.thp.util.AjaxAction" />
+		<action name="findDisplayFormat" method="findDisplayFormat" class="tw.com.mitac.thp.util.AjaxAction" />
+		<action name="findBillDisplayFormat" method="findBillDisplayFormat" class="tw.com.mitac.thp.util.AjaxAction" />
+		<action name="parseToSysidByFormat" method="parseToSysidByFormat" class="tw.com.mitac.thp.util.AjaxAction" />
+		<action name="parseToFormatBySysid" method="parseToFormatBySysid" class="tw.com.mitac.thp.util.AjaxAction" />
+	</package>
+
+	<include file="mitac_struts.xml" />
+	<include file="miaa_struts.xml" />
+
+	<include file="struts-thp.xml" />
+
+	<include file="struts-login2.xml" />
+
+	<include file="struts-thp2.xml" />
+	<include file="struts-bhs.xml" />
+	<include file="struts-mts.xml" />
+	<include file="struts-hps.xml" />
+
+	<include file="struts-page2-cps.xml" />
+	<include file="struts-page2-mts.xml" />
+	<include file="struts-page2-bhs.xml" />
+
+</struts>

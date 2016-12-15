@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/4/25 ?????? 01:55:57 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="tw.com.mitac.thp.bean.CpsSmsSend" table="cps_sms_send" catalog="thp" optimistic-lock="version">
+        <id name="sysid" type="string">
+            <column name="SYSID" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="creator" type="string">
+            <column name="CREATOR" not-null="true">
+                <comment>&#229;&#187;&#186;&#231;&#171;&#139;&#232;&#128;&#133;</comment>
+            </column>
+        </property>
+        <property name="creationDate" type="string">
+            <column name="CREATION_DATE" not-null="true">
+                <comment>&#229;&#187;&#186;&#231;&#171;&#139;&#230;&#151;&#165;&#230;&#156;&#159;</comment>
+            </column>
+        </property>
+        <property name="operator" type="string">
+            <column name="OPERATOR" not-null="true">
+                <comment>&#231;&#182;&#173;&#232;&#173;&#183;&#228;&#186;&#186;&#229;&#147;&#161;</comment>
+            </column>
+        </property>
+        <property name="operationDate" type="string">
+            <column name="OPERATION_DATE" not-null="true">
+                <comment>&#231;&#182;&#173;&#232;&#173;&#183;&#230;&#151;&#165;&#230;&#156;&#159;</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="REMARK" length="65535">
+                <comment>&#229;&#130;&#153;&#232;&#168;&#187;</comment>
+            </column>
+        </property>
+        <property name="smsTenplateSysid" type="string">
+            <column name="SMS_TENPLATE_SYSID" length="45" not-null="true">
+                <comment>&#231;&#176;&#161;&#232;&#168;&#138;&#230;&#168;&#163;&#230;&#157;&#191;&#231;&#179;&#187;&#231;&#181;&#177;&#228;&#187;&#163;&#232;&#153;&#159;</comment>
+            </column>
+        </property>
+        <property name="smsDateTime" type="timestamp">
+            <column name="SMS_DATE_TIME" length="19">
+                <comment>&#231;&#176;&#161;&#232;&#168;&#138;&#231;&#153;&#188;&#233;&#128;&#129;&#230;&#151;&#165;&#230;&#156;&#159;&#230;&#153;&#130;&#233;&#150;&#147;</comment>
+            </column>
+        </property>
+        
+        <set cascade="all-delete-orphan" lazy="false" name="detailSet" order-by="sysid" sort="unsorted" table="cps_sms_send_detail">
+			<key column="SMS_SEND_SYSID" /><!-- foreign-key="SYSID" on-delete="cascade" not-null="true" -->
+			<one-to-many class="tw.com.mitac.thp.bean.CpsSmsSendDetail" />
+		</set>
+    </class>
+</hibernate-mapping>

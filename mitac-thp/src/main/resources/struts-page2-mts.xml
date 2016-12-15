@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="pages2-mts" namespace="/pages2" extends="Tenancy-allow">
+		<action name="MED_001" method="indexMtsPage" class="tw.com.mitac.thp.action.IndexMtsPage2Action">
+			<result>MED_001.jsp</result>
+		</action>
+		<!-- ========== ========== ========== ========== ========== -->
+		<action name="MTS_FW_001" method="indexMtsPage" class="tw.com.mitac.thp.action.IndexMtsPage2Action">
+			<result>MTS_FW_001.jsp</result>
+		</action>
+
+		<action name="MTS_FW_002" method="indexMtsVendorPage" class="tw.com.mitac.thp.action.IndexMtsVendorAction">
+			<result>MTS_FW_002.jsp</result>
+		</action>
+		<action name="MTS_FW_002_demo" method="demo" class="tw.com.mitac.thp.action.ForVendorProfileEdsIndexMtsVendorAction">
+			<result>MTS_FW_002.jsp</result>
+		</action>
+
+		<action name="MTS_FW_002_demoForDoctor" method="demo" class="tw.com.mitac.thp.action.ForDoctorEdsIndexMtsVendorAction">
+			<result>MTS_FW_002.jsp</result>
+		</action>
+
+		<action name="MTS_FW_003" method="execute" class="tw.com.mitac.thp.action.IndexMtsPageSpecialAction">
+			<result>MTS_FW_003.jsp</result>
+		</action>
+
+		<action name="MTS_FW_003_demoS" method="demo" class="tw.com.mitac.thp.action.ForProducteEdsIndexMtsPageAction">
+			<result>MTS_FW_003.jsp</result>
+		</action>
+
+		<action name="MTS_FW_003_demoI" method="demo" class="tw.com.mitac.thp.action.ForCooperationEdsIndexMtsPageAction">
+			<result>MTS_FW_003.jsp</result>
+		</action>
+
+		<action name="ajaxMtsNews" method="newsBoxInfo" class="tw.com.mitac.thp.action.FrontMtsArticleAction" />
+		<action name="MTS_FW_007" method="outerItemSingle" class="tw.com.mitac.thp.action.FrontMtsArticleAction">
+			<result>MTS_FW_007.jsp</result>
+		</action>
+		<action name="MTS_FW_007_demo" method="viewItemSingle" class="tw.com.mitac.thp.action.FrontMtsArticleAction">
+			<result>MTS_FW_007.jsp</result>
+		</action>
+
+		<action name="medMenuSearch" method="medMenuSearch" class="tw.com.mitac.thp.action.FrontSearchAction">
+			<result>MED_002.jsp</result>
+		</action>
+
+		<action name="MTS_FW_006" method="mtsExecute" class="tw.com.mitac.thp.action.FrontSearchAction">
+			<result>MTS_FW_006.jsp</result>
+		</action>
+
+		<action name="MTS_FW_006_1" method="outerMain" class="tw.com.mitac.thp.action.FrontMtsVendorProfileAction">
+			<result name="outerMain">MTS_FW_006_1.jsp</result>
+		</action>
+
+		<action name="MTS_FW_008" method="indexMtsHighLightPage" class="tw.com.mitac.thp.action.IndexMtsPageHighLightAction">
+			<result>MTS_FW_008.jsp</result>
+		</action>
+
+		<action name="MTS_FW_008_demo" method="demo" class="tw.com.mitac.thp.action.IndexMtsPageHighLightAction">
+			<result>MTS_FW_008.jsp</result>
+		</action>
+		<!-- 合作需求 -->
+	</package>
+	<package name="pages2-mts-login" namespace="/pages2" extends="User-allow2">
+		<action name="MtsCollaborationPage" method="collaborationPage" class="tw.com.mitac.thp.action.FrontMtsCollaborationAction">
+			<result>MTS_FW_005.jsp</result>
+			<result name="error">/WEB-INF/outer/bhs/outerErrorPage.jsp</result>
+		</action>
+
+		<action name="MtsCollaborationPreviewPage" method="previewWithValue" class="tw.com.mitac.thp.action.FrontMtsCollaborationAction">
+			<result>MTS_FW_005_CollaborationPreview.jsp</result>
+			<result name="error">/WEB-INF/outer/bhs/outerErrorPage.jsp</result>
+		</action>
+
+		<action name="MtsCollaborationSubmit" method="collaborationSubmit" class="tw.com.mitac.thp.action.FrontMtsCollaborationAction">
+			<result>MTS_FW_005_CollaborationPreview.jsp</result>
+			<result name="error">/WEB-INF/outer/bhs/outerErrorPage.jsp</result>
+		</action>
+
+		<!-- 預約視訊 -->
+		<action name="MtsCollaborationPage1" method="collaborationPage" class="tw.com.mitac.thp.action.FrontMtsCollaborationAction">
+			<result>MTS_FW_005_1.jsp</result>
+			<result name="error">/WEB-INF/outer/bhs/outerErrorPage.jsp</result>
+		</action>
+
+		<action name="MtsViewPreviewPage" method="previewWithValue" class="tw.com.mitac.thp.action.FrontMtsCollaborationAction">
+			<result>MTS_FW_005_ViewPreview.jsp</result>
+			<result name="error">/WEB-INF/outer/bhs/outerErrorPage.jsp</result>
+		</action>
+
+		<action name="MtsCollaborationSubmit1" method="collaborationSubmit" class="tw.com.mitac.thp.action.FrontMtsCollaborationAction">
+			<result>MTS_FW_005_ViewPreview.jsp</result>
+			<result name="error">/WEB-INF/outer/bhs/outerErrorPage.jsp</result>
+		</action>
+
+
+
+		<!-- 客服中心-預約來台就醫單 -->
+		<action name="MTS_FW_004" method="centerAppointmentPage" class="tw.com.mitac.thp.action.FrontMtsAppointmentListAction">
+			<result>MTS_FW_004.jsp</result>
+		</action>
+		<action name="MTS_FW_004_UploadFile" method="uploadFile" class="tw.com.mitac.thp.action.FrontMtsAppointmentListAction" />
+		<action name="MTS_FW_004_ShowFile" method="showFile" class="tw.com.mitac.thp.action.FrontMtsAppointmentListAction" />
+		<action name="MTS_FW_004_DeleteFile" method="deleteFile" class="tw.com.mitac.thp.action.FrontMtsAppointmentListAction" />
+
+		<action name="MTS_FW_004_Preview" method="previewWithValue" class="tw.com.mitac.thp.action.FrontMtsAppointmentListAction">
+			<result>MTS_FW_004_Preview.jsp</result>
+		</action>
+
+		<action name="MTS_FW_004Submit" method="appointmentSubmit" class="tw.com.mitac.thp.action.FrontMtsAppointmentListAction">
+			<result>MTS_FW_004_Preview.jsp</result>
+		</action>
+
+	</package>
+
+</struts>

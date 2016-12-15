@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/10/17 ?U?? 01:32:59 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="tw.com.mitac.thp.bean.CpsVendor" table="cps_vendor" catalog="thp" optimistic-lock="version">
+        <id name="sysid" type="string">
+            <column name="SYSID" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="creator" type="string">
+            <column name="CREATOR" not-null="true">
+                <comment>&#171;&#216;&#165;&#223;&#170;&#204;</comment>
+            </column>
+        </property>
+        <property name="creationDate" type="string">
+            <column name="CREATION_DATE" not-null="true">
+                <comment>&#171;&#216;&#165;&#223;&#164;&#233;&#180;&#193;</comment>
+            </column>
+        </property>
+        <property name="operator" type="string">
+            <column name="OPERATOR" not-null="true">
+                <comment>&#186;&#251;&#197;@&#164;H&#173;&#251;</comment>
+            </column>
+        </property>
+        <property name="operationDate" type="string">
+            <column name="OPERATION_DATE" not-null="true">
+                <comment>&#186;&#251;&#197;@&#164;&#233;&#180;&#193;</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="REMARK" length="65535">
+                <comment>&#179;&#198;&#181;&#249;</comment>
+            </column>
+        </property>
+        <property name="name" type="string">
+            <column name="VENDOR_NAME" not-null="true">
+                <comment>&#168;&#209;&#192;&#179;&#176;&#211;&#166;W&#186;&#217;</comment>
+            </column>
+        </property>
+        <property name="address" type="string">
+            <column name="ADDRESS">
+                <comment>&#166;a&#167;}</comment>
+            </column>
+        </property>
+        <property name="vendorPhone" type="string">
+            <column name="VENDOR_PHONE">
+                <comment>&#185;q&#184;&#220;</comment>
+            </column>
+        </property>
+        <property name="execute" type="string">
+            <column name="EXECUTE">
+                <comment>&#173;t&#179;d&#164;H</comment>
+            </column>
+        </property>
+        <property name="isEnabled" type="java.lang.Boolean">
+            <column name="IS_ENABLED" not-null="true">
+                <comment>&#172;O&#167;_&#177;&#210;&#165;&#206;</comment>
+            </column>
+        </property>
+        <property name="vendorShortName" type="string">
+            <column name="VENDOR_SHORT_NAME">
+                <comment>&#168;&#209;&#192;&#179;&#176;&#211;&#194;&#178;&#186;&#217;</comment>
+            </column>
+        </property>
+        <property name="entitySysid" type="string">
+            <column name="ENTITY_SYSID" length="45">
+                <comment>&#192;]&#167;O</comment>
+            </column>
+        </property>
+        <property name="vendorContact" type="string">
+            <column name="VENDOR_CONTACT" length="45">
+                <comment>&#168;&#209;&#192;&#179;&#176;&#211;&#193;p&#181;&#184;&#164;H</comment>
+            </column>
+        </property>
+        <property name="vendorContactTel" type="string">
+            <column name="VENDOR_CONTACT_TEL" length="45">
+                <comment>&#168;&#209;&#192;&#179;&#176;&#211;&#193;p&#181;&#184;&#164;H&#185;q&#184;&#220;</comment>
+            </column>
+        </property>
+        <property name="isEnabledConversations" type="java.lang.Boolean">
+            <column name="IS_ENABLED_CONVERSATIONS" not-null="true">
+                <comment>&#172;O&#167;_&#177;&#210;&#165;&#206;&#167;Y&#174;&#201;&#171;&#200;&#170;A</comment>
+            </column>
+        </property>
+        <property name="isEnabledVideoconferencing" type="java.lang.Boolean">
+            <column name="IS_ENABLED_VIDEOCONFERENCING" not-null="true">
+                <comment>&#172;O&#167;_&#177;&#210;&#165;&#206;&#181;&#248;&#176;T&#183;|&#196;&#179;</comment>
+            </column>
+        </property>
+        <set cascade="all-delete-orphan" lazy="false" name="detailSet" order-by="sysid" sort="unsorted" table="cps_member">
+			<key column="SOURCE_SYSID" />
+			<!-- foreign-key="SYSID" on-delete="cascade" not-null="true" -->
+			<one-to-many class="tw.com.mitac.thp.bean.CpsMemberForVendor" />
+		</set>
+    </class>
+</hibernate-mapping>

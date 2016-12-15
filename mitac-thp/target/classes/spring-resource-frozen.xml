@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<!-- 靠左凍結欄位 -->
+	<util:list id="allFrozenList" list-class="java.util.ArrayList">
+		<!-- FIX AREA -->
+		<value>sysid</value>
+		<value>dataId</value>
+		<value>name</value>
+		<value>billno</value>
+		<value>dataOrder</value>
+		<!-- FIX AREA -->
+
+	</util:list>
+	<!-- 排除 -->
+	<util:map id="excludeFrozenMap" map-class="java.util.LinkedHashMap">
+		<!-- <entry key="itemsysid"> <util:list list-class="java.util.ArrayList"> <value>CorePcSalesAnalyzeField</value> </util:list> 
+			</entry> -->
+	</util:map>
+
+	<util:map id="frozenMap" map-class="java.util.LinkedHashMap">
+		<entry key="MtsAppointment">
+			<util:list list-class="java.util.ArrayList">
+				<value>appointmentNo</value>
+			</util:list>
+		</entry>
+	</util:map>
+</beans>

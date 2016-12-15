@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<!-- 有設定的欄位，下選單才會有* -->
+	<util:list id="allInfoStarList" list-class="java.util.ArrayList">
+		<!-- <value>vendorSysid</value> -->
+	</util:list>
+	<!-- 排除 -->
+	<util:map id="excludeInfoStarMap" map-class="java.util.LinkedHashMap">
+		<!-- <entry key="vendorSysid"> <util:list list-class="java.util.ArrayList"> <value>BhsVendorProfile</value> <value>MtsVendorProfile</value> 
+			<value>HpsBillSalesOrder</value> </util:list> </entry> -->
+	</util:map>
+
+	<util:map id="infoStarMap" map-class="java.util.LinkedHashMap">
+		<!-- FIX AREA -->
+		<entry key="SysConstant">
+			<util:list list-class="java.util.ArrayList">
+				<value>tableName</value>
+			</util:list>
+		</entry>
+		<entry key="SysJobScheduleSetting">
+			<util:list list-class="java.util.ArrayList">
+				<value>second</value>
+				<value>minute</value>
+				<value>hour</value>
+				<value>day</value>
+				<value>month</value>
+				<value>week</value>
+				<value>year</value>
+			</util:list>
+		</entry>
+		<!-- FIX AREA -->
+
+		<entry key="HpsPromoteBonus">
+			<util:list list-class="java.util.ArrayList">
+				<value>vendorSysid</value>
+			</util:list>
+		</entry>
+		<entry key="HpsCoreItemType">
+			<util:list list-class="java.util.ArrayList">
+				<value>vendorSysid</value>
+			</util:list>
+		</entry>
+
+		<entry key="MtsOrders">
+			<util:list list-class="java.util.ArrayList">
+				<value>vendorSysid</value>
+			</util:list>
+		</entry>
+
+		<entry key="CpsAdvertisementRent">
+			<util:list list-class="java.util.ArrayList">
+				<value>vendorSysid</value>
+				<value>filePath</value>
+			</util:list>
+		</entry>
+
+		<entry key="CpsSmsTemplate">
+			<util:list list-class="java.util.ArrayList">
+				<value>vendorSysid</value>
+			</util:list>
+		</entry>
+
+	</util:map>
+</beans>

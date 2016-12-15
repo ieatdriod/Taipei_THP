@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/3/31 ?W?? 10:32:26 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="tw.com.mitac.thp.bean.CpsMeetingReportDetails" table="cps_meeting_report_details" catalog="thp" optimistic-lock="version">
+        <id name="sysid" type="string">
+            <column name="SYSID" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="creator" type="string">
+            <column name="CREATOR" not-null="true">
+                <comment>&#171;&#216;&#165;&#223;&#170;&#204;</comment>
+            </column>
+        </property>
+        <property name="creationDate" type="string">
+            <column name="CREATION_DATE" not-null="true">
+                <comment>&#171;&#216;&#165;&#223;&#164;&#233;&#180;&#193;</comment>
+            </column>
+        </property>
+        <property name="operator" type="string">
+            <column name="OPERATOR" not-null="true">
+                <comment>&#186;&#251;&#197;@&#164;H&#173;&#251;</comment>
+            </column>
+        </property>
+        <property name="operationDate" type="string">
+            <column name="OPERATION_DATE" not-null="true">
+                <comment>&#186;&#251;&#197;@&#164;&#233;&#180;&#193;</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="REMARK" length="65535">
+                <comment>&#179;&#198;&#181;&#249;</comment>
+            </column>
+        </property>
+        <property name="entitySysid" type="string">
+            <column name="ENTITY_SYSID" length="45">
+                <comment>&#168;&#211;&#183;&#189;&#168;t&#178;&#206;&#165;N&#184;&#185;</comment>
+            </column>
+        </property>
+        <property name="meetingType" type="string">
+            <column name="MEETING_TYPE" length="1">
+                <comment>
+                &#181;&#248;&#176;T&#183;|&#196;&#179;&#171;&#172;&#186;A,1:&#166;h&#164;&#232;&#181;&#248;&#176;T&#183;|&#196;&#179;,2:&#189;u&#164;W&#189;&#215;&#189;&#205;</comment>
+            </column>
+        </property>
+        <property name="meetingRoomId" type="string">
+            <column name="MEETING_ROOM_ID" not-null="true">
+                <comment>&#183;|&#196;&#179;&#171;&#199;&#165;N&#189;X</comment>
+            </column>
+        </property>
+        <property name="meetingDate" type="date">
+            <column name="MEETING_DATE" length="10">
+                <comment>&#183;|&#196;&#179;&#164;&#233;&#180;&#193;</comment>
+            </column>
+        </property>
+        <property name="meetingStartTime" type="time">
+            <column name="MEETING_START_TIME" length="8">
+                <comment>&#182;}&#169;l&#174;&#201;&#182;&#161;</comment>
+            </column>
+        </property>
+        <property name="meetingSubject" type="string">
+            <column name="MEETING_SUBJECT">
+                <comment>&#183;|&#196;&#179;&#166;W&#186;&#217;</comment>
+            </column>
+        </property>
+        <property name="initiatorCpsMemberSysid" type="string">
+            <column name="INITIATOR_CPS_MEMBER_SYSID">
+                <comment>&#181;o&#176;_&#164;H&#177;b&#184;&#185;</comment>
+            </column>
+        </property>
+        <property name="meetingSession" type="java.lang.Integer">
+            <column name="MEETING_SESSION">
+                <comment>&#183;|&#196;&#179;&#180;&#193;&#182;&#161;(&#164;&#192;&#196;&#193;)</comment>
+            </column>
+        </property>
+        <property name="meetingStatus" type="string">
+            <column name="MEETING_STATUS" length="1">
+                <comment>&#183;|&#196;&#179;&#170;&#172;&#186;A</comment>
+            </column>
+        </property>
+        <property name="attendanceNumber" type="java.lang.Integer">
+            <column name="ATTENDANCE_NUMBER">
+                <comment>&#183;|&#196;&#179;&#164;H&#188;&#198;</comment>
+            </column>
+        </property>
+        <property name="cpsMeetingSysid" type="string">
+            <column name="CPS_MEETING_SYSID" length="45">
+                <comment>&#181;&#248;&#176;T&#183;|&#196;&#179;SYSID</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

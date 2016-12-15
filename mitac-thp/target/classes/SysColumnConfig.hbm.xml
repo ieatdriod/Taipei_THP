@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/11/22 ?U?? 05:03:51 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+	<class name="tw.com.mitac.jqgrid.bean.SysColumnConfig" table="sys_column_config">
+		<id name="sysid" type="string">
+			<column name="SYSID" length="45" />
+			<generator class="assigned" />
+		</id>
+		<property name="operator" type="string">
+			<column name="OPERATOR" not-null="true" />
+		</property>
+		<property name="operationDate" type="string">
+			<column name="OPERATION_DATE" not-null="true" />
+		</property>
+		<property name="creator" type="string">
+			<column name="CREATOR" not-null="true" />
+		</property>
+		<property name="creationDate" type="string">
+			<column name="CREATION_DATE" not-null="true" />
+		</property>
+		<property name="remark" type="string">
+			<column name="REMARK" />
+		</property>
+		<property name="tablename" type="string">
+			<column name="TABLENAME" not-null="true" />
+		</property>
+		<property name="columnId" type="string">
+			<column name="COLUMN_ID" not-null="true" />
+		</property>
+		<property name="columnName" type="string">
+			<column name="COLUMN_NAME" not-null="true" />
+		</property>
+		<property name="sequenceno" type="string">
+			<column name="SEQUENCENO" not-null="true" />
+		</property>
+		<property name="width" type="big_decimal">
+			<column name="WIDTH" precision="21" scale="8" not-null="true" />
+		</property>
+		<property name="ishidden" type="java.lang.Boolean">
+			<column name="ISHIDDEN" not-null="true" />
+		</property>
+		<property name="iseditable" type="java.lang.Boolean">
+			<column name="ISEDITABLE" not-null="true" />
+		</property>
+		<property name="isfrozen" type="java.lang.Boolean">
+			<column name="ISFROZEN" not-null="true" />
+		</property>
+		<property name="issystem" type="java.lang.Boolean">
+			<column name="ISSYSTEM" not-null="true" />
+		</property>
+		<property name="uid" type="string">
+			<column name="UID" />
+		</property>
+	</class>
+</hibernate-mapping>

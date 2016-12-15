@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<util:list id="allTextareaList" list-class="java.util.ArrayList">
+		<!-- <value>remark</value> 備註可任意編輯，故暫時不加入 -->
+
+		<value>qaText</value>
+		<value>qaReText</value>
+		<value>qaRetext</value>
+		<value>smsMessage</value>
+		<value>collaborationDescribe</value>
+		<value>feedbackDetail</value>
+	</util:list>
+
+	<!-- 排除 -->
+	<util:map id="excludeTextareaMap" map-class="java.util.LinkedHashMap">
+		<!-- <entry key="itemsysid"> <util:list list-class="java.util.ArrayList"> <value>CorePcSalesAnalyzeField</value> </util:list> 
+			</entry> -->
+
+	</util:map>
+
+	<util:map id="textareaMap" map-class="java.util.LinkedHashMap">
+		<!-- FIX AREA -->
+		<entry key="SysConstant">
+			<util:list list-class="java.util.ArrayList">
+				<value>constantOption</value>
+			</util:list>
+		</entry>
+		<!-- FIX AREA -->
+
+		<entry key="CpsConfig">
+			<util:list list-class="java.util.ArrayList">
+				<value>siteMetaDescription</value>
+				<value>siteMetaKeywords</value>
+				<value>indexDesc1</value>
+				<value>indexDesc2</value>
+
+			</util:list>
+		</entry>
+
+
+		<entry key="MtsOrders">
+			<util:list list-class="java.util.ArrayList">
+				<value>ordersDetail</value>
+				<value>ordersNote</value>
+			</util:list>
+		</entry>
+
+		<entry key="BhsOrders">
+			<util:list list-class="java.util.ArrayList">
+				<value>ordersDetail</value>
+				<value>ordersNote</value>
+				<value>feedbackDetail</value>
+			</util:list>
+		</entry>
+
+		<entry key="HpsVendorCustomerService">
+			<util:list list-class="java.util.ArrayList">
+				<value>issueContent</value>
+				<value>issueReplyContent</value>
+			</util:list>
+		</entry>
+
+		<entry key="BhsArticle">
+			<util:list list-class="java.util.ArrayList">
+				<value>articleSummary</value>
+			</util:list>
+		</entry>
+		<entry key="MtsArticle">
+			<util:list list-class="java.util.ArrayList">
+				<value>articleSummary</value>
+			</util:list>
+		</entry>
+
+		<entry key="CpsMeeting">
+			<util:list list-class="java.util.ArrayList">
+				<value>meetingDescription</value>
+			</util:list>
+		</entry>
+
+		<entry key="BhsVendorProfile">
+			<util:list list-class="java.util.ArrayList">
+				<value>vendorProfileSummary</value>
+			</util:list>
+		</entry>
+
+		<entry key="MtsVendorProfile">
+			<util:list list-class="java.util.ArrayList">
+				<value>vendorProfileSummary</value>
+			</util:list>
+		</entry>
+
+		<entry key="CpsExhibitionList">
+			<util:list list-class="java.util.ArrayList">
+				<value>exhibitionSummary</value>
+				<value>exhibitionInfo</value>
+			</util:list>
+		</entry>
+
+		<entry key="MtsProducts">
+			<util:list list-class="java.util.ArrayList">
+				<value>productsProfileSummary</value>
+			</util:list>
+		</entry>
+
+		<entry key="MtsProducts">
+			<util:list list-class="java.util.ArrayList">
+
+				<value>productsProfileSummary</value>
+			</util:list>
+		</entry>
+
+		<entry key="BhsTechnology">
+			<util:list list-class="java.util.ArrayList">
+
+				<value>technologySummary</value>
+			</util:list>
+		</entry>
+
+
+		<entry key="BhsProducts">
+			<util:list list-class="java.util.ArrayList">
+
+				<value>productsProfileSummary</value>
+			</util:list>
+		</entry>
+
+		<entry key="MtsHighlight">
+			<util:list list-class="java.util.ArrayList">
+				<value>highlightSummary</value>
+			</util:list>
+		</entry>
+
+		<entry key="BhsHighlight">
+			<util:list list-class="java.util.ArrayList">
+				<value>highlightSummary</value>
+			</util:list>
+		</entry>
+
+		<entry key="MtsCooperation">
+			<util:list list-class="java.util.ArrayList">
+				<value>cooperationSummary</value>
+			</util:list>
+		</entry>
+
+		<entry key="MtsAppointment">
+			<util:list list-class="java.util.ArrayList">
+				<value>medicalSymptomDescribe</value>
+			</util:list>
+		</entry>
+
+		<entry key="CpsFaq">
+			<util:list list-class="java.util.ArrayList">
+				<value>faqQ</value>
+			</util:list>
+		</entry>
+
+		<entry key="BhsOperate">
+			<util:list list-class="java.util.ArrayList">
+				<value>operateName</value>
+				<value>operateIntroduction1</value>
+			</util:list>
+		</entry>
+
+		<entry key="MtsDoctor">
+			<util:list list-class="java.util.ArrayList">
+				<value>doctorName</value>
+				<value>doctorIntroduction1</value>
+			</util:list>
+		</entry>
+
+		<entry key="CpsHottopic">
+			<util:list list-class="java.util.ArrayList">
+				<value>hottopicVideoSummary</value>
+			</util:list>
+		</entry>
+
+		<entry key="CpsHottopicInfo">
+			<util:list list-class="java.util.ArrayList">
+				<value>hottopicSummary</value>
+			</util:list>
+		</entry>
+
+	</util:map>
+</beans>

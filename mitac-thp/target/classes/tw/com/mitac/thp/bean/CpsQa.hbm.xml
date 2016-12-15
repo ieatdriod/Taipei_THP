@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/6/28 ?U?? 07:30:24 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="tw.com.mitac.thp.bean.CpsQa" table="cps_qa" catalog="thp" optimistic-lock="version">
+        <id name="sysid" type="string">
+            <column name="SYSID" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="creator" type="string">
+            <column name="CREATOR" not-null="true">
+                <comment>&#171;&#216;&#165;&#223;&#164;&#233;&#180;&#193;</comment>
+            </column>
+        </property>
+        <property name="creationDate" type="string">
+            <column name="CREATION_DATE" not-null="true">
+                <comment>&#171;&#216;&#165;&#223;&#170;&#204;</comment>
+            </column>
+        </property>
+        <property name="operator" type="string">
+            <column name="OPERATOR" not-null="true">
+                <comment>&#186;&#251;&#197;@&#164;H&#173;&#251;</comment>
+            </column>
+        </property>
+        <property name="operationDate" type="string">
+            <column name="OPERATION_DATE" not-null="true">
+                <comment>&#186;&#251;&#197;@&#164;&#233;&#180;&#193;</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="REMARK" length="65535">
+                <comment>&#179;&#198;&#181;&#249;</comment>
+            </column>
+        </property>
+        <property name="entitySysid" type="string">
+            <column name="ENTITY_SYSID" length="45" not-null="true">
+                <comment>&#192;]&#167;O</comment>
+            </column>
+        </property>
+        <property name="createName" type="string">
+            <column name="CREATE_NAME" not-null="true">
+                <comment>&#169;m&#166;W</comment>
+            </column>
+        </property>
+        <property name="email" type="string">
+            <column name="EMAIL" not-null="true">
+                <comment>&#185;q&#164;l&#182;l&#165;&#243;</comment>
+            </column>
+        </property>
+        <property name="memberSysid" type="string">
+            <column name="MEMBER_SYSID" length="45" not-null="true">
+                <comment>&#180;&#163;&#176;&#221;&#183;|&#173;&#251;&#168;t&#178;&#206;&#165;N&#184;&#185;</comment>
+            </column>
+        </property>
+        <property name="qaSubject" type="string">
+            <column name="QA_SUBJECT" not-null="true" />
+        </property>
+        <property name="qaText" type="string">
+            <column name="QA_TEXT" length="500" not-null="true">
+                <comment>&#180;&#163;&#176;&#221;&#164;&#186;&#174;e</comment>
+            </column>
+        </property>
+        <property name="qaAttachment" type="string">
+            <column name="QA_ATTACHMENT">
+                <comment>&#170;&#254;&#165;&#243;</comment>
+            </column>
+        </property>
+        <property name="phone" type="string">
+            <column name="PHONE">
+                <comment>&#193;p&#181;&#184;&#185;q&#184;&#220;</comment>
+            </column>
+        </property>
+
+		<set cascade="all-delete-orphan" lazy="false" name="detailSet" order-by="sysid" sort="unsorted" table="cps_qa_feedback">
+			<key column="QA_SYSID" /><!-- foreign-key="SYSID" on-delete="cascade" not-null="true" -->
+			<one-to-many class="tw.com.mitac.thp.bean.CpsQaFeedback" />
+		</set>
+        
+    </class>
+</hibernate-mapping>

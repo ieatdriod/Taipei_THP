@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/5/20 ?U?? 03:45:54 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="tw.com.mitac.thp.bean.MtsMarquee" table="mts_marquee" catalog="thp" optimistic-lock="version">
+        <id name="sysid" type="string">
+            <column name="SYSID" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="creator" type="string">
+            <column name="CREATOR">
+                <comment>&#171;&#216;&#165;&#223;&#170;&#204;</comment>
+            </column>
+        </property>
+        <property name="creationDate" type="string">
+            <column name="CREATION_DATE">
+                <comment>&#171;&#216;&#165;&#223;&#164;&#233;&#180;&#193;</comment>
+            </column>
+        </property>
+        <property name="operator" type="string">
+            <column name="OPERATOR">
+                <comment>&#186;&#251;&#197;@&#164;H&#173;&#251;</comment>
+            </column>
+        </property>
+        <property name="operationDate" type="string">
+            <column name="OPERATION_DATE">
+                <comment>&#186;&#251;&#197;@&#164;&#233;&#180;&#193;</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="REMARK" length="65535">
+                <comment>&#179;&#198;&#181;&#249;</comment>
+            </column>
+        </property>
+        <property name="dataOrder" type="java.lang.Integer">
+            <column name="DATA_ORDER" not-null="true">
+                <comment>&#177;&#198;&#167;&#199;</comment>
+            </column>
+        </property>
+        <property name="marqueeText" type="string">
+            <column name="MARQUEE_TEXT" not-null="true">
+                <comment>&#182;]&#176;&#168;&#191;O&#164;&#186;&#174;e</comment>
+            </column>
+        </property>
+        <property name="isEnabled" type="java.lang.Boolean">
+            <column name="IS_ENABLED" not-null="true">
+                <comment>&#177;&#210;&#165;&#206;Y/&#176;&#177;&#165;&#206;N</comment>
+            </column>
+        </property>
+        <property name="marqueeUrl" type="string">
+            <column name="MARQUEE_URL">
+                <comment>&#179;s&#181;&#178;&#186;&#244;&#167;}</comment>
+            </column>
+        </property>
+        <property name="sourceId" type="string">
+            <column name="SOURCE_ID" not-null="true">
+                <comment>&#176;T&#174;&#167;&#171;&#216;&#165;&#223;&#164;H</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

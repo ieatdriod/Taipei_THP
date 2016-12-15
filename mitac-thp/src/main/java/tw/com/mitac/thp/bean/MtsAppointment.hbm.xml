@@ -1,0 +1,202 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/11/3 ?U?? 05:29:49 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+	<class name="tw.com.mitac.thp.bean.MtsAppointment" table="mts_appointment"
+		catalog="thp" optimistic-lock="version">
+		<id name="sysid" type="string">
+			<column name="SYSID" length="45" />
+			<generator class="assigned" />
+		</id>
+		<property name="creator" type="string">
+			<column name="CREATOR" not-null="true">
+				<comment>&#171;&#216;&#165;&#223;&#170;&#204;</comment>
+			</column>
+		</property>
+		<property name="creationDate" type="string">
+			<column name="CREATION_DATE" not-null="true">
+				<comment>&#171;&#216;&#165;&#223;&#164;&#233;&#180;&#193;</comment>
+			</column>
+		</property>
+		<property name="operator" type="string">
+			<column name="OPERATOR" not-null="true">
+				<comment>&#186;&#251;&#197;@&#164;H&#173;&#251;</comment>
+			</column>
+		</property>
+		<property name="operationDate" type="string">
+			<column name="OPERATION_DATE" not-null="true">
+				<comment>&#186;&#251;&#197;@&#164;&#233;&#180;&#193;</comment>
+			</column>
+		</property>
+		<property name="remark" type="string">
+			<column name="REMARK" length="65535">
+				<comment>&#179;&#198;&#181;&#249;</comment>
+			</column>
+		</property>
+		<property name="siteMemberSysid" type="string">
+			<column name="SITE_MEMBER_SYSID" length="45" not-null="true">
+				<comment>&#171;e&#165;x&#183;|&#173;&#251;&#177;b&#184;&#185;</comment>
+			</column>
+		</property>
+		<property name="appointmentStatus" type="string">
+			<column name="APPOINTMENT_STATUS" length="20" not-null="true">
+				<comment>
+					&#185;w&#172;&#249;&#179;&#230;&#170;&#172;&#186;A:&#171;&#221;&#179;B&#178;z&#161;GPENDING,&#179;B&#178;z&#164;&#164;&#161;GPROCESS,&#177;&#181;&#168;&#252;&#161;GACCEPT,&#169;&#218;&#181;&#180;&#161;GDENIAL,&#181;&#178;&#174;&#215;&#161;GCLOSE</comment>
+			</column>
+		</property>
+		<property name="appointmentVendor" type="string">
+			<column name="APPOINTMENT_VENDOR" length="45" not-null="true">
+				<comment>&#185;w&#172;&#249;&#185;&#206;&#182;&#164;</comment>
+			</column>
+		</property>
+		<property name="appointmentNo" type="string">
+			<column name="APPOINTMENT_NO" length="45" not-null="true">
+				<comment>&#185;w&#172;&#249;&#179;&#230;&#184;&#185;</comment>
+			</column>
+		</property>
+		<property name="mtsProductsSysid" type="string">
+			<column name="MTS_PRODUCTS_SYSID" length="65535" not-null="true">
+				<comment>&#194;&#229;&#192;&#248;&#170;A&#176;&#200;</comment>
+			</column>
+		</property>
+		<property name="suffererName" type="string">
+			<column name="SUFFERER_NAME" not-null="true">
+				<comment>&#177;w&#170;&#204;&#166;W&#166;r</comment>
+			</column>
+		</property>
+		<property name="suffererSurname" type="string">
+			<column name="SUFFERER_SURNAME" not-null="true">
+				<comment>&#177;w&#170;&#204;&#169;m&#164;&#243;</comment>
+			</column>
+		</property>
+		<property name="suffererGender" type="string">
+			<column name="SUFFERER_GENDER" length="10" not-null="true">
+				<comment>&#177;w&#170;&#204;&#169;&#202;&#167;O:&#168;k&#161;GMALE,&#164;k&#161;GFEMALE</comment>
+			</column>
+		</property>
+		<property name="suffererBirthday" type="date">
+			<column name="SUFFERER_BIRTHDAY" length="10" not-null="true">
+				<comment>&#177;w&#170;&#204;&#165;&#205;&#164;&#233;</comment>
+			</column>
+		</property>
+		<property name="suffererCountry" type="string">
+			<column name="SUFFERER_COUNTRY" not-null="true">
+				<comment>&#177;w&#170;&#204;&#176;&#234;&#167;O</comment>
+			</column>
+		</property>
+		<property name="suffererAreaCode" type="string">
+			<column name="SUFFERER_AREA_CODE" length="45">
+				<comment>&#166;a&#167;}&#176;&#207;&#189;X</comment>
+			</column>
+		</property>
+		<property name="suffererAddress" type="string">
+			<column name="SUFFERER_ADDRESS" not-null="true">
+				<comment>&#177;w&#170;&#204;&#166;a&#167;}</comment>
+			</column>
+		</property>
+		<property name="suffererEmail" type="string">
+			<column name="SUFFERER_EMAIL" not-null="true">
+				<comment>&#177;w&#170;&#204;EMAIL</comment>
+			</column>
+		</property>
+		<property name="suffererPhone" type="string">
+			<column name="SUFFERER_PHONE" not-null="true">
+				<comment>&#177;w&#170;&#204;&#185;q&#184;&#220;</comment>
+			</column>
+		</property>
+		<property name="suffererReservePhone" type="string">
+			<column name="SUFFERER_RESERVE_PHONE">
+				<comment>&#177;w&#170;&#204;&#179;&#198;&#165;&#206;&#185;q&#184;&#220;</comment>
+			</column>
+		</property>
+		<property name="medicalSymptomDescribe" type="string">
+			<column name="MEDICAL_SYMPTOM_DESCRIBE" length="65535"
+				not-null="true">
+				<comment>&#194;&#229;&#192;&#248;&#175;g&#170;&#172;&#194;&#178;&#173;z</comment>
+			</column>
+		</property>
+		<property name="appointmentDateOneLocal" type="timestamp">
+			<column name="APPOINTMENT_DATE_ONE_LOCAL" length="19">
+				<comment>&#180;N&#182;E&#164;&#233;&#180;&#193;&#164;@(local)</comment>
+			</column>
+		</property>
+		<property name="appointmentDateOneTaiwan" type="timestamp">
+			<column name="APPOINTMENT_DATE_ONE_TAIWAN" length="19">
+				<comment>&#180;N&#182;E&#164;&#233;&#180;&#193;&#164;@(taiwan)</comment>
+			</column>
+		</property>
+		<property name="appointmentDateTwoLocal" type="timestamp">
+			<column name="APPOINTMENT_DATE_TWO_LOCAL" length="19">
+				<comment>&#180;N&#182;E&#164;&#233;&#180;&#193;&#164;G(local)</comment>
+			</column>
+		</property>
+		<property name="appointmentDateTwoTaiwan" type="timestamp">
+			<column name="APPOINTMENT_DATE_TWO_TAIWAN" length="19">
+				<comment>&#180;N&#182;E&#164;&#233;&#180;&#193;&#164;G(taiwan)</comment>
+			</column>
+		</property>
+		<property name="appointmentDoctor" type="string">
+			<column name="APPOINTMENT_DOCTOR">
+				<comment>&#185;w&#172;&#249;&#194;&#229;&#174;v</comment>
+			</column>
+		</property>
+		<property name="isAcceptMedicalAtTaiwan" type="java.lang.Boolean">
+			<column name="IS_ACCEPT_MEDICAL_AT_TAIWAN">
+				<comment>&#172;O&#167;_&#166;b&#165;x&#198;W&#177;&#181;&#168;&#252;&#185;L&#194;&#229;&#192;&#248;:&#172;O&#161;G1,&#167;_&#161;G0</comment>
+			</column>
+		</property>
+		<property name="treatmentMechanism" type="string">
+			<column name="TREATMENT_MECHANISM">
+				<comment>&#180;N&#182;E&#194;&#229;&#192;&#248;&#190;&#247;&#186;c</comment>
+			</column>
+		</property>
+		<property name="otherHelps" type="string">
+			<column name="OTHER_HELPS">
+				<comment>
+					&#168;&#228;&#165;L&#168;&#243;&#167;U(TN&#194;&#189;&#196;&#182;,VN&#195;&#177;&#195;&#210;,AN&#166;&#237;&#177;J,TR&#174;&#200;&#185;C,TS&#165;&#230;&#179;q,OE&#168;&#228;&#165;L)</comment>
+			</column>
+		</property>
+		<property name="greatOperation" type="string">
+			<column name="GREAT_OPERATION" length="65535">
+				<comment>&#173;&#171;&#164;j&#164;&#226;&#179;N</comment>
+			</column>
+		</property>
+		<property name="countryCode" type="string">
+			<column name="COUNTRY_CODE" length="10">
+				<comment>&#185;q&#184;&#220;&#176;&#234;&#189;X</comment>
+			</column>
+		</property>
+		<property name="countryCode2" type="string">
+			<column name="COUNTRY_CODE2" length="10">
+				<comment>&#185;q&#184;&#220;&#176;&#234;&#189;X2</comment>
+			</column>
+		</property>
+		<property name="isRead" type="java.lang.Boolean">
+			<column name="IS_READ" not-null="true">
+				<comment>&#164;w&#197;&#170;(1)&#165;&#188;&#197;&#170;(0)</comment>
+			</column>
+		</property>
+
+		<set cascade="all-delete-orphan" lazy="false" name="detailSet"
+			order-by="sysid" sort="unsorted" table="mts_appointment_case_link">
+			<key column="APPOINTMENT_SYSID" />
+			<!-- foreign-key="SYSID" on-delete="cascade" not-null="true" -->
+			<one-to-many class="tw.com.mitac.thp.bean.MtsAppointmentCaseLink" />
+		</set>
+
+		<set cascade="all-delete-orphan" lazy="false" name="detailSet2"
+			order-by="sysid" sort="unsorted" table="mts_appointment_file_link">
+			<key column="APPOINTMENT_SYSID" />
+			<!-- foreign-key="SYSID" on-delete="cascade" not-null="true" -->
+			<one-to-many class="tw.com.mitac.thp.bean.MtsAppointmentFileLink" />
+		</set>
+
+		<set cascade="all-delete-orphan" lazy="false" name="detailSet3"
+			order-by="sysid" sort="unsorted" table="mts_appointment_feedback">
+			<key column="APPOINTMENT_SYSID" />
+			<!-- foreign-key="SYSID" on-delete="cascade" not-null="true" -->
+			<one-to-many class="tw.com.mitac.thp.bean.MtsAppointmentFeedback" />
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/11/9 ?U?? 03:27:40 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="tw.com.mitac.thp.bean.BhsHighlight" table="bhs_highlight" catalog="thp" optimistic-lock="version">
+        <id name="sysid" type="string">
+            <column name="SYSID" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="creator" type="string">
+            <column name="CREATOR" not-null="true">
+                <comment>&#171;&#216;&#165;&#223;&#170;&#204;</comment>
+            </column>
+        </property>
+        <property name="creationDate" type="string">
+            <column name="CREATION_DATE" not-null="true">
+                <comment>&#171;&#216;&#165;&#223;&#164;&#233;&#180;&#193;</comment>
+            </column>
+        </property>
+        <property name="operator" type="string">
+            <column name="OPERATOR" not-null="true">
+                <comment>&#186;&#251;&#197;@&#164;H&#173;&#251;</comment>
+            </column>
+        </property>
+        <property name="operationDate" type="string">
+            <column name="OPERATION_DATE" not-null="true">
+                <comment>&#186;&#251;&#197;@&#164;&#233;&#180;&#193;</comment>
+            </column>
+        </property>
+        <property name="dataOrder" type="java.lang.Integer">
+            <column name="DATA_ORDER" not-null="true">
+                <comment>&#177;&#198;&#167;&#199;</comment>
+            </column>
+        </property>
+        <property name="name" type="string">
+            <column name="HIGHLIGHT_NAME" not-null="true">
+                <comment>Highlight&#166;W&#186;&#217;</comment>
+            </column>
+        </property>
+        <property name="isEnabled" type="java.lang.Boolean">
+            <column name="IS_ENABLED" not-null="true">
+                <comment>&#177;&#210;&#165;&#206;Y/&#176;&#177;&#165;&#206;N</comment>
+            </column>
+        </property>
+        <property name="vendorSysid" type="string">
+            <column name="VENDOR_SYSID" length="45" not-null="true">
+                <comment>&#168;&#209;&#192;&#179;&#176;&#211;&#168;t&#178;&#206;&#165;N&#184;&#185;</comment>
+            </column>
+        </property>
+        <property name="highlightSummary" type="string">
+            <column name="HIGHLIGHT_SUMMARY">
+                <comment>&#186;K&#173;n&#164;&#182;&#178;&#208;</comment>
+            </column>
+        </property>
+        <property name="highlightProfileFull" type="string">
+            <column name="HIGHLIGHT_PROFILE_FULL" length="65535">
+                <comment>&#164;&#186;&#174;e&#196;&#230;1(&#194;&#178;&#164;&#182;)</comment>
+            </column>
+        </property>
+        <property name="highlightText2" type="string">
+            <column name="HIGHLIGHT_TEXT_2" length="65535">
+                <comment>&#175;S&#166;&#226;</comment>
+            </column>
+        </property>
+        <property name="highlightSummaryImg" type="string">
+            <column name="HIGHLIGHT_SUMMARY_IMG">
+                <comment>&#186;K&#173;n&#185;&#207;&#165;&#220;</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="REMARK" length="65535">
+                <comment>&#179;&#198;&#181;&#249;</comment>
+            </column>
+        </property>
+        
+        <set cascade="all-delete-orphan" lazy="false" name="detailSet" order-by="sysid" sort="unsorted" table="bhs_info_link">
+			<key column="SOURCE_SYSID" /><!-- foreign-key="SYSID" on-delete="cascade" not-null="true" -->
+			<one-to-many class="tw.com.mitac.thp.bean.BhsInfoLink" />
+		</set>
+		
+		<set cascade="all-delete-orphan" lazy="false" name="detailSet2" order-by="sysid" sort="unsorted" table="bhs_ads_c">
+			<key column="SOURCE_SYSID" />
+			<!-- foreign-key="SYSID" on-delete="cascade" not-null="true" -->
+			<one-to-many class="tw.com.mitac.thp.bean.BhsAdsC" />
+		</set>
+        
+    </class>
+</hibernate-mapping>

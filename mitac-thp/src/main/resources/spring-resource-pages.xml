@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<util:map id="pagesUrl" map-class="java.util.LinkedHashMap">
+		<entry key="index" value="front/" />
+		<entry key="register" value="pages2/CPS_FW_002" />
+		<entry key="login" value="cps2/login" />
+
+		<entry key="health" value="hps2/01_index" />
+		<entry key="productList" value="hps2/02_product-list" />
+		<entry key="healthProduct" value="hps2/03_product" />
+
+		<!-- <entry key="shoppingCar" value="pages/shoppingCar" /> -->
+		<entry key="shoppingCar" value="hps2/04_store-basket" />
+
+		<!-- <entry key="shoppingCasher" value="pages/shoppingCasher" /> -->
+		<entry key="shoppingCasher" value="hps2/05_store-shipping" />
+
+		<entry key="ad" value="cps2/ad" />
+		<entry key="QandA" value="cps2/QandA" />
+		<entry key="feedback" value="cps2/feedback" />
+		<entry key="search" value="cps2/search" />
+
+		<entry key="searchItem" value="hps2/11_search-result" />
+		<!-- <entry key="memberCenterOrder" value="pages/memberCenterOrder" /> -->
+		<entry key="memberCenterOrder" value="hps2/17_01_order-record" />
+		<!-- <entry key="memberCenterBonus" value="pages/memberCenterBonus" /> -->
+		<entry key="memberCenterBonus" value="hps2/18_gold-coupon" />
+
+		<!-- <entry key="indexMtsPage" value="pages2/MTS_FW_001" /> -->
+		<entry key="indexMtsPage" value="pages2/MED_001" />
+
+		<!-- <entry key="indexBhsPage" value="pages2/BHS_FW_001" /> -->
+		<entry key="indexBhsPage" value="pages2/BIO_001" />
+
+		<entry key="mtsTheArticle" value="pages2/MTS_FW_007" />
+		<entry key="bhsTheArticle" value="pages2/BHS_FW_011" />
+	</util:map>
+
+</beans>

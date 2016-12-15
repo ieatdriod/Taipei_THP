@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<!-- Define some output appenders -->
+
+	<!-- CustomDailyRollingFileAppender 為新加入的class --><!-- File.renameTo failed -->
+	<!-- <appender name="FileAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/opt/app/thp/log/history.log" />
+		<param name="Append" value="true" />
+		<param name="datePattern" value="'_'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy/MM/dd HH:mm:ss.SSS}][%-12.12t][%-5p][%-26.26c{1} - %-20.20M] - %m%n" />
+		</layout>
+	</appender> -->
+
+	<appender name="ConsoleAppender" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy/MM/dd HH:mm:ss.SSS}][%-12.12t][%-5p][%-26.26c - %-20.20M] - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- <category name="com"> <priority value="WARN" /> </category> 顯示Hibernate SQL 參數<TRACE> <category name="org.hibernate.type" 
+		additivity="false"> <priority value="WARN" /> </category> 顯示Hibernate SQL<WARN> <category name="org.hibernate.SQL" additivity="false"> 
+		<priority value="WARN" /> </category> <category name="freemarker"> <priority value="WARN" /> </category> <category name="org"> 
+		<priority value="WARN" /> </category> -->
+
+	<category name="tw.com.mitac.thp">
+		<priority value="DEBUG" />
+	</category>
+	<category name="tw.com.mitac.miaa">
+		<priority value="DEBUG" />
+	</category>
+	
+ 	<!-- 顯示Hibernate SQL 參數<TRACE>  -->
+<!--  	<category name="org.hibernate.type">  -->
+<!--   		<priority value="TRACE" /> -->
+<!--  	</category> -->
+ 	
+	<!--<category name="tw.com.mitac.tool.dao.impl"> <priority value="INFO" /> </category> -->
+
+	<category name="org.apache.struts2.util.TextProviderHelper">
+		<priority value="ERROR" />
+	</category>
+	<root>
+		<priority value="WARN" />
+		<appender-ref ref="ConsoleAppender" />
+		<appender-ref ref="FileAppender" />
+	</root>
+</log4j:configuration>
